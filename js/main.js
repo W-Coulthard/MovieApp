@@ -42,10 +42,11 @@ function showMovies(movies) {
         const movieEl = document.createElement('div')
         movieEl.classList.add('movie')
         movieEl.innerHTML = `
-            <img src="${IMG_PATH + poster_path}" alt="${title}">
-            <div class="movie-info">
-        </div>
-        `
+          <img src="${IMG_PATH + poster_path}" alt="${title}">
+          <div class="movie-info">
+            <h3>${title}</h3>
+
+          </div>`
         main.appendChild(movieEl)
     })
 }
@@ -55,10 +56,7 @@ const movieContainer = document.querySelector(".movies");
 const displayMovies = movies => {
   movies.forEach(movie => {
     const movieDiv = document.createElement("div");
-    movieDiv.innerHTML = `
-      <h3>${movie.title}</h3>
-      <img src="${movie.image}" alt="${movie.title}">
-    `;
+    movieDiv.innerHTML = `<img src="${movie.image}" alt="${movie.title}">`;
     movieContainer.appendChild(movieDiv);
   });
 };
@@ -77,6 +75,14 @@ form.addEventListener('submit', (e) => {
         window.location.reload();
     }
 })
+
+/*Image Links*/
+
+const imgButton = document.querySelector('.main');
+
+imgButton.addEventListener('click', () => {
+    window.location.href = "path/to/new/page.html";
+});
 
 
 

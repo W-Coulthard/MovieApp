@@ -5,6 +5,7 @@
 html, body {
   font-family: "Poppins", sans-serif;
   overflow-x: hidden;
+  background: #000000;
 }
 
 header {
@@ -63,7 +64,8 @@ nav ul li {
 }
 
 /*end of hamburger*/
-.title {
+.logo {
+  display: flex;
   flex-direction: column;
   margin: 15px;
 }
@@ -72,6 +74,13 @@ h1 {
   margin: 0;
   color: #f30909;
   font-size: 50px;
+}
+
+h3 {
+  display: none;
+  margin: 0;
+  color: #e9dede;
+  font-size: 20px;
 }
 
 .search {
@@ -90,44 +99,41 @@ h1 {
   background-color: #e9dede;
 }
 
-body {
-  background: #000000;
-}
-
 main {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
 }
 
-.movies {
-  width: 100%;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-}
-
-.movies li {
+.movie img {
   width: 300px;
   height: 450px;
-  display: flex;
-  flex-direction: center;
-  justify-content: center;
-  align-items: center;
-}
-
-.movies li img {
-  width: 100%;
-  height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
 }
 
-.movie:hover .overview {
-  transform: translateY(0);
+.movie img:hover {
+  outline: none;
+  cursor: pointer;
 }
 
+/*
+.movie li {
+  width: 300px;
+  height: 450px;
+  @include flex();
+}
+
+.movie li img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.movie:hover .overview {
+  transform: translateY(0);
+  display: none;
+}
+*/
 footer {
   display: flex;
   flex-direction: center;

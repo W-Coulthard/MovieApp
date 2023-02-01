@@ -16,6 +16,7 @@ $tertiary-color: #000000;
 html, body {
   font-family: 'Poppins', sans-serif;
   overflow-x: hidden;
+  background: $tertiary-color;
 }
 
 header {
@@ -26,6 +27,7 @@ header {
 }
 
 /*Hamburger*/
+
 .hamburger {
   display: block;
   margin-left: 20px;
@@ -69,10 +71,11 @@ nav ul li {
   background-color: $secondary-color;
   font-family: 'Poppins', sans-serif;
 }
+
 /*end of hamburger*/
 
-.title {
- // @include flex();
+.logo {
+  display: flex;
   flex-direction: column;
   margin: 15px;
 }
@@ -81,6 +84,13 @@ h1 {
   margin: 0;
   color: $primary-color;
   font-size: 50px;
+}
+
+h3 {
+  display: none;
+  margin: 0;
+  color: $secondary-color;
+  font-size: 20px;
 }
 
 .search {
@@ -97,35 +107,33 @@ h1 {
 #search:focus {
     outline: none;
     background-color: $secondary-color
-    
 }
 
-body {
-    background: $tertiary-color;
-  }
-
-  main {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-  
-.movies {
-  width: 100%;
+main {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-    
-}
   
-.movies li {
+}
+
+.movie img {
+  width: 300px;
+  height: 450px;
+  object-fit: cover;
+  }
+
+.movie img:hover {
+    outline: none;
+    cursor: pointer;
+  }
+
+/*
+.movie li {
   width: 300px;
   height: 450px;
   @include flex();
 }
 
-.movies li img {
+.movie li img {
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -133,8 +141,9 @@ body {
 
 .movie:hover .overview {
   transform: translateY(0);
+  display: none;
 }
-
+*/
 footer {
   @include flex();
   flex-direction: column;
