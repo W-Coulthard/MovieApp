@@ -3,16 +3,42 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title></title>
+        <title>MediaFox</title>
         <meta name="description" content="MediaFox">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="/styles/styles.sass">
+        <link rel="stylesheet" href="/styles/style.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+        <script src="https://kit.fontawesome.com/7d26c7f0fb.js" crossorigin="anonymous"></script>
     </head>
     <body>
+        <header>
+            <nav>
+                <ul id="nav-list">
+                    <li><a href="#about-me">About Me</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <button class="hamburger" id="hamburger">
+                  <i class="fas fa-bars"></i> 
+                </button>
+            </nav>
+            <div class="title">
+                <h1>MediaFox</h1>
+            </div>
+            <div class="searchBox">
+                <input type="text" id="search"  placeholder="Search for a movie...">
+            </div>
+        </header>
 
+        <div class="movies"></div>
+        
+        <script src="/js/main.js"></script>
+      <div class="movies"></div>
         
         
-        <script src="/js/main.js" async defer></script>
+        <script src="/js/main.js"></script>
     </body>
 </html>
 

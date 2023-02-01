@@ -1,1 +1,115 @@
-/*# sourceMappingURL=style.css.map */
+html, body {
+  font-family: "Poppins", sans-serif;
+  overflow-x: hidden;
+}
+
+header {
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/*Hamburger*/
+.hamburger {
+  display: block;
+  margin-left: 50px;
+  margin-top: 25px;
+  font-size: 30px;
+  color: white;
+  background-color: transparent;
+  border: 0;
+  align-self: flex-end;
+  z-index: 1;
+}
+
+.hamburger:hover {
+  outline: none;
+  cursor: pointer;
+}
+
+ul {
+  display: none;
+  margin: 0px;
+}
+
+ul.show {
+  display: flex;
+  position: absolute;
+  margin-left: 50px;
+  flex-direction: column;
+}
+
+nav {
+  display: flex;
+}
+
+.logo {
+  display: none;
+}
+
+/*end*/
+.title {
+  display: flex;
+  flex-direction: center;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+h1 {
+  margin: 0;
+  color: #f30909;
+  font-size: 50px;
+}
+
+#search {
+  background-color: transparent;
+  border-radius: 10%;
+  border: 2px solid #e9dede;
+  padding: 0.5rem 10px;
+  font-size: 1rem;
+  align-items: flex-end;
+  margin-left: auto;
+}
+
+#search:focus {
+  outline: none;
+  background-color: #e9dede;
+}
+
+body {
+  background: #000000;
+}
+
+#form {
+  display: flex;
+  flex-direction: center;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0;
+}
+
+.movies {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.movies li {
+  width: 300px;
+  height: 450px;
+  display: flex;
+  flex-direction: center;
+  justify-content: center;
+  align-items: center;
+}
+
+.movies li img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}/*# sourceMappingURL=style.css.map */
