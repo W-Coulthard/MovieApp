@@ -16,76 +16,80 @@ html, body {
 }
 
 header {
-    padding: 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 /*Hamburger*/
-
-  .hamburger {
-      display: block;
-      margin-left: 50px;
-      margin-top: 25px;
-      font-size: 30px;
-      color: white;
-      background-color: transparent;
-      border: 0;
-      align-self: flex-end;
-      z-index: 1;
-  }
-
-  .hamburger:hover {
-      outline: none;
-      cursor: pointer;
-  }
-
-  ul {
-      display: none;
-      margin: 0px;
-
-  }
-
-  ul.show {
-      display: flex;
-      position: absolute;
-      margin-left: 50px;
-      flex-direction: column; 
-  }
-
-  nav {
-      display: flex;
-  }
-
-  .logo {
-      display: none;
+.hamburger {
+  display: block;
+  margin-left: 20px;
+  margin-top: 25px;
+  margin-bottom: 20px;
+  margin-right: 20px;
+  font-size: 30px;
+  color: white;
+  background-color: transparent;
+  border: 0;
+  align-self: flex-end;
+  z-index: 1;
 }
 
+.hamburger:hover {
+  outline: none;
+  cursor: pointer;
+}
+
+ul {
+  display: none;
+  margin: 0px;
+}
+
+ul.show {
+  display: flex;
+  position: absolute;
+  margin-left: 50px;
+  flex-direction: column; 
+}
+
+nav {
+  display: flex;
+}
+
+nav ul li {
+  text-decoration: none;
+  list-style: none;
+  margin: 5px;
+  color: white;
+  background-color: $secondary-color;
+  font-family: 'Poppins', sans-serif;
+}
 /*end*/
 
 .title {
-    @include flex();
-    flex-direction: column;
-    
+  @include flex();
+  flex-direction: column;
+  margin: 15px;
 }
 
 h1 {
-    margin: 0;
-    color: $primary-color;
-    font-size: 50px;
+  margin: 0;
+  color: $primary-color;
+  font-size: 50px;
 }
 
 #search {
-    background-color: transparent;
-    border-radius: 10%;
-    border: 2px solid $secondary-color;
-    padding:0.5rem 10px;
-    font-size: 1rem;
-    align-items: flex-end;
-    margin-left: auto;
+  background-color: transparent;
+  border-radius: 10%;
+  border: 2px solid $secondary-color;
+  padding:0.5rem 10px;
+  font-size: 1rem;
+  align-items: flex-end;
+  margin-left: auto;
+  margin-right: 25px;
 }
-
 
 #search:focus {
     outline: none;
@@ -97,24 +101,19 @@ body {
     background: $tertiary-color;
   }
   
-  #form {
-    @include flex();
-    margin: 20px 0;
-  }
-  
-    .movies {
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
+.movies {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
     
-  }
+}
   
-  .movies li {
-    width: 300px;
-    height: 450px;
-    @include flex();
+.movies li {
+  width: 300px;
+  height: 450px;
+  @include flex();
 }
 
 .movies li img {
