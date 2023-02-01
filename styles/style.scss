@@ -9,6 +9,9 @@ $primary-color: #f30909;
 $secondary-color: #e9dede;
 $tertiary-color: #000000;
 
+* {
+  box-sizing: border-box;
+}
 
 html, body {
   font-family: 'Poppins', sans-serif;
@@ -16,10 +19,10 @@ html, body {
 }
 
 header {
+  @include flex();
   padding: 20px;
   display: flex;
   justify-content: space-between;
-  align-items: center;
 }
 
 /*Hamburger*/
@@ -66,10 +69,10 @@ nav ul li {
   background-color: $secondary-color;
   font-family: 'Poppins', sans-serif;
 }
-/*end*/
+/*end of hamburger*/
 
 .title {
-  @include flex();
+ // @include flex();
   flex-direction: column;
   margin: 15px;
 }
@@ -80,14 +83,14 @@ h1 {
   font-size: 50px;
 }
 
-#search {
+.search {
   background-color: transparent;
   border-radius: 10%;
   border: 2px solid $secondary-color;
   padding:0.5rem 10px;
   font-size: 1rem;
   align-items: flex-end;
-  margin-left: auto;
+  margin-left: 10px;
   margin-right: 25px;
 }
 
@@ -99,6 +102,12 @@ h1 {
 
 body {
     background: $tertiary-color;
+  }
+
+  main {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
   }
   
 .movies {
@@ -120,4 +129,16 @@ body {
     width: 100%;
     height: 100%;
     object-fit: cover;
+}
+
+.movie:hover .overview {
+  transform: translateY(0);
+}
+
+footer {
+  @include flex();
+  flex-direction: column;
+  margin: 15px;
+  color: $secondary-color;
+  
 }

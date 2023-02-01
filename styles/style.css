@@ -1,13 +1,20 @@
+* {
+  box-sizing: border-box;
+}
+
 html, body {
   font-family: "Poppins", sans-serif;
   overflow-x: hidden;
 }
 
 header {
+  display: flex;
+  flex-direction: center;
+  justify-content: center;
+  align-items: center;
   padding: 20px;
   display: flex;
   justify-content: space-between;
-  align-items: center;
 }
 
 /*Hamburger*/
@@ -55,12 +62,8 @@ nav ul li {
   font-family: "Poppins", sans-serif;
 }
 
-/*end*/
+/*end of hamburger*/
 .title {
-  display: flex;
-  flex-direction: center;
-  justify-content: center;
-  align-items: center;
   flex-direction: column;
   margin: 15px;
 }
@@ -71,14 +74,14 @@ h1 {
   font-size: 50px;
 }
 
-#search {
+.search {
   background-color: transparent;
   border-radius: 10%;
   border: 2px solid #e9dede;
   padding: 0.5rem 10px;
   font-size: 1rem;
   align-items: flex-end;
-  margin-left: auto;
+  margin-left: 10px;
   margin-right: 25px;
 }
 
@@ -89,6 +92,12 @@ h1 {
 
 body {
   background: #000000;
+}
+
+main {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .movies {
@@ -113,4 +122,18 @@ body {
   height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
+}
+
+.movie:hover .overview {
+  transform: translateY(0);
+}
+
+footer {
+  display: flex;
+  flex-direction: center;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 15px;
+  color: #e9dede;
 }/*# sourceMappingURL=style.css.map */

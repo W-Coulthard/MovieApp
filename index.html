@@ -5,6 +5,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <title>MediaFox</title>
         <meta name="description" content="MediaFox">
+        <link rel="shortcut icon" type="image/x-icon" href="assets/images/foxcam.ico"/>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="/styles/style.css">
         <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -16,9 +17,9 @@
         <header>
             <nav>
                 <ul id="nav-list">
-                    <li><a href="#about-me">About Me</a></li>
-                    <li><a href="#projects">Projects</a></li>
-                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#movies">Movies</a></li>
+                    <li><a href="#tvshows">TV Shows</a></li>
+                    <li><a href="#favorites">Favorites</a></li>
                 </ul>
                 <button class="hamburger" id="hamburger">
                   <i class="fas fa-bars"></i> 
@@ -27,18 +28,25 @@
             <div class="title">
                 <h1>MediaFox</h1>
             </div>
-            <div class="searchBox">
-                <input type="text" id="search"  placeholder="Search for a movie...">
-            </div>
+            <form id="form">
+                <input type="text" id="search" class="search"  placeholder="Search for a movie...">
+            </form>
         </header>
+        <main id="main"></main>
+        <div class="container">
+          <div class="movies">
+            <div class="movie">
+          </div>
+            <div class="tvshows">
 
-        <div class="movies"></div>
-          
-        
-        <script src="/js/main.js"></script>
-      <div class="movies"></div>
-        
-        
+            </div>
+        </div>
+        <div class="favorites">
+        </div>
+        </div>
+        <footer>
+    
+
         <script src="/js/main.js"></script>
     </body>
 </html>
