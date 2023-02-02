@@ -1,18 +1,48 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title></title>
-        <meta name="description" content="">
+        <title>MediaFox</title>
+        <meta name="description" content="MediaFox">
+        <link rel="shortcut icon" type="image/x-icon" href="assets/images/foxcam.ico"/>
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="">
+        <link rel="stylesheet" href="/styles/style.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+        <script src="https://kit.fontawesome.com/7d26c7f0fb.js" crossorigin="anonymous"></script>
     </head>
     <body>
-        <!--[if lt IE 7]>
-            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
-        <![endif]-->
+        <header>
+            <nav>
+                <ul id="nav-list">
+                    <li><a href="#movies">Movies</a></li>
+                    <li><a href="#tvshows">TV Shows</a></li>
+                    <li><a href="#favorites">Favorites</a></li>
+                </ul>
+                <button class="hamburger" id="hamburger">
+                  <i class="fas fa-bars"></i> 
+                </button>
+            </nav>
+            <div class="logo">
+                <h1>MediaFox</h1>
+            </div>
+            <form id="form">
+                <input type="text" id="search" class="search"  placeholder="Search for a movie...">
+            </form>
+        </header>
+        <div class="container">
+            <div id="info" class="info"></div>
+            <div id="cast" class="cast"></div>
+            <div id="overview" class="overview"></div>
+            <div id="title" class="title"></div>
+            <div id="vote_average" class="vote_average"></div>
+        </div>
         
-        <script src="" async defer></script>
+       
+        
+
+        <script src="/js/details.js" async defer></script>
     </body>
 </html>

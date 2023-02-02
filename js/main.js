@@ -61,7 +61,6 @@ const displayMovies = movies => {
   });
 };
 
-
 /*search bar*/
 
 form.addEventListener('submit', (e) => {
@@ -81,8 +80,16 @@ form.addEventListener('submit', (e) => {
 const imgButton = document.querySelector('.main');
 
 imgButton.addEventListener('click', () => {
-    window.location.href = "path/to/new/page.html";
+    window.location.href = "/details.html";
+
+    showMovies(data.results)
+    console.log(data.results)
+    
 });
+
+
+
+
 
 
 

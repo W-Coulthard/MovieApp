@@ -17,6 +17,7 @@ html, body {
   font-family: 'Poppins', sans-serif;
   overflow-x: hidden;
   background: $tertiary-color;
+  color: $secondary-color;
 }
 
 header {
@@ -87,7 +88,7 @@ h1 {
 }
 
 h3 {
-  display: none;
+  
   margin: 0;
   color: $secondary-color;
   font-size: 20px;
@@ -125,6 +126,17 @@ main {
     outline: none;
     cursor: pointer;
   }
+
+.info {
+  @include flex();
+  flex-direction: column;
+  width: 300px;
+  height: 450px;
+  font-size: 20px;
+  text-align: center;
+  padding: 10px;
+  justify-content: space-between;
+}
 
 /*
 .movie li {
