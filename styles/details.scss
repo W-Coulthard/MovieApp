@@ -1,25 +1,34 @@
+@mixin flex() {
+  display: flex;
+  flex-direction: center;
+  justify-content: center;
+  align-items: center;
+}
+
+$primary-color: #f30909;
+$secondary-color: #e9dede;
+$tertiary-color: #000000;
+
 * {
   box-sizing: border-box;
 }
 
 html, body {
-  font-family: "Poppins", sans-serif;
+  font-family: 'Poppins', sans-serif;
   overflow-x: hidden;
-  background: #000000;
-  color: #e9dede;
+  background: $tertiary-color;
+  color: $secondary-color;
 }
 
 header {
-  display: flex;
-  flex-direction: center;
-  justify-content: center;
-  align-items: center;
+  @include flex();
   padding: 20px;
   display: flex;
   justify-content: space-between;
 }
 
 /*Hamburger*/
+
 .hamburger {
   display: block;
   margin-left: 20px;
@@ -48,7 +57,7 @@ ul.show {
   display: flex;
   position: absolute;
   margin-left: 50px;
-  flex-direction: column;
+  flex-direction: column; 
 }
 
 nav {
@@ -60,11 +69,12 @@ nav ul li {
   list-style: none;
   margin: 5px;
   color: white;
-  background-color: #e9dede;
-  font-family: "Poppins", sans-serif;
+  background-color: $secondary-color;
+  font-family: 'Poppins', sans-serif;
 }
 
 /*end of hamburger*/
+
 .logo {
   display: flex;
   flex-direction: column;
@@ -73,22 +83,22 @@ nav ul li {
 
 h1 {
   margin: 0;
-  color: #f30909;
+  color: $primary-color;
   font-size: 50px;
 }
 
 h3 {
   display: none;
   margin: 0;
-  color: #e9dede;
+  color: $secondary-color;
   font-size: 20px;
 }
 
 .search {
   background-color: transparent;
   border-radius: 10%;
-  border: 2px solid #e9dede;
-  padding: 0.5rem 10px;
+  border: 2px solid $secondary-color;
+  padding:0.5rem 10px;
   font-size: 1rem;
   align-items: flex-end;
   margin-left: 10px;
@@ -96,8 +106,8 @@ h3 {
 }
 
 #search:focus {
-  outline: none;
-  background-color: #e9dede;
+    outline: none;
+    background-color: $secondary-color
 }
 
 main {
@@ -110,50 +120,49 @@ main {
 .movie img {
   width: 300px;
   height: 450px;
-  -o-object-fit: cover;
-     object-fit: cover;
-}
+  object-fit: cover;
+  }
 
 .movie img:hover {
-  outline: none;
-  cursor: pointer;
-}
+    outline: none;
+    cursor: pointer;
+  }
 
 .title {
-  display: none;
-  color: #e9dede;
+  
+  color: $secondary-color;
   font-size: 30px;
   font-weight: bold;
 }
 
 .overview {
-  color: #e9dede;
+  color: $secondary-color;
   font-size: 20px;
-  display: none;
+  
 }
 
 .rating {
-  color: #e9dede;
+  color: $secondary-color;
   font-size: 20px;
-  display: none;
+  
 }
 
 .cast {
-  color: #e9dede;
+  color: $secondary-color;
   font-size: 20px;
-  display: none;
+ 
 }
 
 .release_date {
-  color: #e9dede;
+  color: $secondary-color;
   font-size: 20px;
-  display: none;
+  
 }
 
 .genres {
-  color: #e9dede;
+  color: $secondary-color;
   font-size: 20px;
-  display: none;
+  
 }
 
 /*
@@ -175,11 +184,9 @@ main {
 }
 */
 footer {
-  display: flex;
-  flex-direction: center;
-  justify-content: center;
-  align-items: center;
+  @include flex();
   flex-direction: column;
   margin: 15px;
-  color: #e9dede;
-}/*# sourceMappingURL=style.css.map */
+  color: $secondary-color;
+  
+}

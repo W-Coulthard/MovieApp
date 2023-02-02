@@ -16,7 +16,7 @@ let mybutton = document.getElementById("myBtn");
 
 /*API*/
 
-const API_URL = 'https://api.themoviedb.org/3/trending/tv/week?api_key=25afca5b22e187755c2665b7a304437e'
+const API_URL = 'https://api.themoviedb.org/3/trending/movie/week?api_key=25afca5b22e187755c2665b7a304437e'
 const IMG_PATH = 'https://image.tmdb.org/t/p/w1280'
 
 const main = document.getElementById('main')
@@ -37,7 +37,7 @@ function showMovies(movies) {
     main.innerHTML = ''
 
     movies.forEach((movie) => {
-        const { poster_path, title, vote_average, overview } = movie
+        const { poster_path, title, vote_average, overview, cast, release_date, genres  } = movie
 
         const movieEl = document.createElement('div')
         movieEl.classList.add('movie')
@@ -45,7 +45,12 @@ function showMovies(movies) {
           <img src="${IMG_PATH + poster_path}" alt="${title}">
           <div class="movie-info">
             <h3>${title}</h3>
-
+            <div class="overview">${overview}</div>
+            <div class="rating">${vote_average}</div>
+            <div class="cast">${cast}</div>
+            <div class="release_date">${release_date}</div>
+            <div class="genres">${genres}</div>
+          
           </div>`
         main.appendChild(movieEl)
     })
@@ -67,7 +72,7 @@ form.addEventListener('submit', (e) => {
     e.preventDefault();
     const searchTerm = search.value;
     if (searchTerm && searchTerm !== '') {
-        const SEARCH_API = `https://api.themoviedb.org/3/search/movie?api_key=25afca5b22e187755c2665b7a304437e&query=${searchTerm}`
+        const SEARCH_API = `https://api.themoviedb.org/3/search/multi?api_key=25afca5b22e187755c2665b7a304437e&language=en-US&page=1&include_adult=false&query=${searchTerm}`
         getMovies(SEARCH_API);
         search.value = '';
     } else {
@@ -78,14 +83,17 @@ form.addEventListener('submit', (e) => {
 /*Image Links*/
 
 const imgButton = document.querySelector('.main');
+const url = `details.html`;
 
 imgButton.addEventListener('click', () => {
-    window.location.href = "/details.html";
-
-    showMovies(data.results)
-    console.log(data.results)
+    window.location.href = url;
+    
+ //   const movieId = '12345';
+ //   const movieTitle = 'The Matrix';
+    showMovies;
     
 });
+console.log(showMovies);
 
 
 
