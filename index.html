@@ -1,51 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>MediaFox</title>
-        <meta name="description" content="MediaFox">
-        <link rel="shortcut icon" type="image/x-icon" href="assets/images/foxcam.ico"/>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="/styles/style.css">
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
-        <script src="https://kit.fontawesome.com/7d26c7f0fb.js" crossorigin="anonymous"></script>
-    </head>
-    <body>
-        <header>
-            <nav>
-                <ul id="nav-list">
-                    <li><a href="#movies">Movies</a></li>
-                    <li><a href="#tvshows">TV Shows</a></li>
-                    <li><a href="#favorites">Favorites</a></li>
-                </ul>
-                <button class="hamburger" id="hamburger">
-                  <i class="fas fa-bars"></i> 
-                </button>
-            </nav>
-            <div class="logo">
-                <h1>MediaFox</h1>
-            </div>
-            <form id="form">
-                <input type="text" id="search" class="search"  placeholder="Search for a movie...">
-            </form>
-        </header>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>MediaFox</title>
+    <meta name="description" content="MediaFox">
+    <link rel="shortcut icon" type="image/x-icon" href="assets/images/foxcam.ico"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/styles/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/7d26c7f0fb.js" crossorigin="anonymous"></script>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <ul id="nav-list">
+          <li><a href="#movies">Movies</a></li>
+          <li><a href="#tvshows">TV Shows</a></li>
+          <li><a href="#favorites">Favorites</a></li>
+        </ul>
+        <button class="hamburger" id="hamburger">
+          <i class="fas fa-bars"></i> 
+        </button>
+      </nav>
+      <div class="logo">
+        <h1>MediaFox</h1>
+      </div>
+      <form id="form">
+        <input type="text" id="search" class="search" placeholder="Search for a movie...">
+      </form>
+    </header>
 
-        <main id="main" class="main">
-            <div class="movie"></div>
-            <div class="title"></div>
-            <div class="overview"></div>
-            <div class="rating"></div>
-            <div class="cast"></div>
-            <div class="release_date"></div>
-            <div class="genres"></div>
-         </main>
+    <main id="main" class="main">
+      <div class="movie-container">
+        <div class="movie-container">
+            <div id="cast" class="cast"></div>
+            <div id="overview" class="overview"></div>
+            <div id="title" class="title"></div>
+            <div id="vote_average" class="vote_average"></div>
+            <div id="release_date" class="release_date"></div>
+            <div id="genres" class="genres"></div>
+          </div>
+      </div>
+    </main>
 
-        <footer>
-           <script src="/js/main.js"></script>
-        </footer>
-    </body>
+    <footer>
+      <script src="/js/main.js"></script>
+    </footer>
+  </body>
 </html>
 

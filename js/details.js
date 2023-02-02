@@ -1,5 +1,3 @@
-/*hamburger*/
-
 const hamburgerButton = document.getElementById('hamburger')
 const navList = document.getElementById('nav-list')
 
@@ -9,43 +7,25 @@ function toggleButton() {
 
 hamburgerButton.addEventListener('click', toggleButton)
 
-
-
 let mybutton = document.getElementById("myBtn");
 
-/*search bar*/
-
-form.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const searchTerm = search.value;
-    if (searchTerm && searchTerm !== '') {
-        const SEARCH_API = `https://api.themoviedb.org/3/search/movie?api_key=25afca5b22e187755c2665b7a304437e&query=${searchTerm}`
-        getMovies(SEARCH_API);
-        search.value = '';
-    } else {
-        window.location.reload();
-    }
-})
-
-/*Retrived Data*/
+/*Retrieved Data*/
 
 const urlParams = new URLSearchParams(window.location.search);
 const movieId = urlParams.get('id');
 const movieTitle = urlParams.get('title');
+const API_KEY = '25afca5b22e187755c2665b7a304437e'
+const IMG_PATH = 'https://image.tmdb.org/t/p/w1280'
 
+const main = document.getElementById('main')
+const form = document.getElementById('form')
+const search = document.getElementById('search')
 
 console.log(`Movie ID: ${movieId}`);
 console.log(`Movie Title: ${movieTitle}`);
 
 const movieContainer = document.querySelector("#main");
-const API_URL = `https://api.themoviedb.org/3/movie/${movieId}?api_key=25afca5b22e187755c2665b7a304437e&language=en-US`
-
-async function getMovieDetails() {
-  const res = await fetch(API_URL)
-  const data = await res.json()
-
-  showMovieDetails(data)
-}
+const DETAILS_API = `https://api.themoviedb.org/3/movie/${movieId}?api_key=${API_KEY}&language=en-US`
 
 function showMovieDetails(data) {
   // Get the movie details from the data returned from the API
@@ -64,11 +44,33 @@ function showMovieDetails(data) {
     </div>`
 }
 
+async function getMovieDetails() {
+  const res = await fetch(DETAILS_API)
+  const data = await res.json()
+
+  showMovieDetails(data)
+}
+
 // Call the function to get and show the movie details
 getMovieDetails();
 
+/*search bar*/
 
 
+
+form.addEventListener('submit', (e) => {
+  e.preventDefault();
+  const searchTerm = search.value;
+  if (searchTerm && searchTerm !== '') {
+      const SEARCH_API = `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&query=${searchTerm}`
+      getMovies(SEARCH_API);
+      search.value = '';
+  } else {
+      window.location.reload();
+  }
+})
+
+console.log(DETAILS_API)
 
 
 /*API*/

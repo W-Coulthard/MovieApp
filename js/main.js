@@ -1,21 +1,3 @@
-
-/*hamburger*/
-
-const hamburgerButton = document.getElementById('hamburger')
-const navList = document.getElementById('nav-list')
-
-function toggleButton() {
-    navList.classList.toggle('show')
-}
-
-hamburgerButton.addEventListener('click', toggleButton)
-
-
-
-let mybutton = document.getElementById("myBtn");
-
-/*API*/
-
 const API_URL = 'https://api.themoviedb.org/3/trending/movie/week?api_key=25afca5b22e187755c2665b7a304437e'
 const IMG_PATH = 'https://image.tmdb.org/t/p/w1280'
 
@@ -37,7 +19,7 @@ function showMovies(movies) {
     main.innerHTML = ''
 
     movies.forEach((movie) => {
-        const { poster_path, title, vote_average, overview, cast, release_date, genres  } = movie
+        const { id, poster_path, title, vote_average, overview, cast, release_date, genres  } = movie
 
         const movieEl = document.createElement('div')
         movieEl.classList.add('movie')
@@ -50,21 +32,31 @@ function showMovies(movies) {
             <div class="cast">${cast}</div>
             <div class="release_date">${release_date}</div>
             <div class="genres">${genres}</div>
-          
+            
           </div>`
+
+        movieEl.setAttribute('data-id', id);
+        movieEl.setAttribute('data-title', title);
         main.appendChild(movieEl)
+        
     })
 }
 
-const movieContainer = document.querySelector(".movies");
+const movieContainer = document.querySelector(".movie-container");
 
-const displayMovies = movies => {
-  movies.forEach(movie => {
-    const movieDiv = document.createElement("div");
-    movieDiv.innerHTML = `<img src="${movie.image}" alt="${movie.title}">`;
-    movieContainer.appendChild(movieDiv);
-  });
-};
+const imgButton = document.querySelector('.main');
+
+imgButton.addEventListener('click', (event) => {
+  const target = event.target;
+  if (target.tagName === 'IMG') {
+    const movieId = target.parentElement.getAttribute('data-id');
+    const movieTitle = target.parentElement.getAttribute('data-title');
+    const url = `details.html?id=${movieId}&title=${movieTitle}`;
+    window.location.href = url;
+  }
+});
+
+
 
 /*search bar*/
 
@@ -80,22 +72,41 @@ form.addEventListener('submit', (e) => {
     }
 })
 
-/*Image Links*/
 
-const imgButton = document.querySelector('.main');
-const url = `details.html`;
+/*hamburger*/
+
+const hamburgerButton = document.getElementById('hamburger')
+const navList = document.getElementById('nav-list')
+
+function toggleButton() {
+    navList.classList.toggle('show')
+}
+
+hamburgerButton.addEventListener('click', toggleButton)
+
+
+
+let mybutton = document.getElementById("myBtn");
+
+
+
+
+
+/*const imgButton = document.querySelector('.main');
+const url = `details.html&main=${main}`;
 
 imgButton.addEventListener('click', () => {
     window.location.href = url;
-    
+    movieEl.innerHTML = ` <img src="${IMG_PATH + poster_path}" alt="${title}">`;
+
+    showMovies(data.results);
+}); 
+
  //   const movieId = '12345';
  //   const movieTitle = 'The Matrix';
-    showMovies;
+ //   showMovieDetails(movieId, movieTitle);
     
-});
 console.log(showMovies);
-
-
 
 
 
