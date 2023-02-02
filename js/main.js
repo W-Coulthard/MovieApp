@@ -1,28 +1,40 @@
-const API_URL = 'https://api.themoviedb.org/3/trending/movie/week?api_key=25afca5b22e187755c2665b7a304437e'
-const IMG_PATH = 'https://image.tmdb.org/t/p/w1280'
+const API_URL = 'https://api.themoviedb.org/3/trending/movie/week?api_key=25afca5b22e187755c2665b7a304437e';
+const IMG_PATH = 'https://image.tmdb.org/t/p/w1280';
 
-const main = document.getElementById('main')
-const form = document.getElementById('form')
-const search = document.getElementById('search')
+const main = document.getElementById('main');
+const form = document.getElementById('form');
+const search = document.getElementById('search');
 
 // Get initial movies
-getMovies(API_URL)
+
+getMovies(API_URL);
 
 async function getMovies(url) {
-    const res = await fetch(url)
-    const data = await res.json()
+    const res = await fetch(url);
+    const data = await res.json();
 
-    showMovies(data.results)
+    showMovies(data.results);
+}
+
+async function getMovieDetails(id) {
+    const detailsURL = `https://api.themoviedb.org/3/movie/${id}?api_key=25afca5b22e187755c2665b7a304437e&append_to_response=credits`;
+    const detailsRes = await fetch(detailsURL);
+    const detailsData = await detailsRes.json();
+
+    return detailsData;
 }
 
 function showMovies(movies) {
-    main.innerHTML = ''
+    main.innerHTML = '';
 
-    movies.forEach((movie) => {
-        const { id, poster_path, title, vote_average, overview, cast, release_date, genres  } = movie
+    movies.forEach(async (movie) => {
+        const { id, poster_path, title, vote_average, overview, release_date } = movie;
+        const details = await getMovieDetails(id);
+        const cast = details.credits.cast.map(actor => actor.name).slice(0, 5).join(', ');
+        const genres = details.genres.map(genre => genre.name).join(', ');
 
-        const movieEl = document.createElement('div')
-        movieEl.classList.add('movie')
+        const movieEl = document.createElement('div');
+        movieEl.classList.add('movie');
         movieEl.innerHTML = `
           <img src="${IMG_PATH + poster_path}" alt="${title}">
           <div class="movie-info">
@@ -32,17 +44,17 @@ function showMovies(movies) {
             <div class="cast">${cast}</div>
             <div class="release_date">${release_date}</div>
             <div class="genres">${genres}</div>
-            
-          </div>`
+          </div>`;
 
         movieEl.setAttribute('data-id', id);
         movieEl.setAttribute('data-title', title);
-        main.appendChild(movieEl)
-        
-    })
+        main.appendChild(movieEl);
+    });
 }
 
-const movieContainer = document.querySelector(".movie-container");
+const movieContainer = document.querySelector('.movie-container');
+
+/*Image Links*/
 
 const imgButton = document.querySelector('.main');
 
@@ -55,8 +67,6 @@ imgButton.addEventListener('click', (event) => {
     window.location.href = url;
   }
 });
-
-
 
 /*search bar*/
 
@@ -72,7 +82,6 @@ form.addEventListener('submit', (e) => {
     }
 })
 
-
 /*hamburger*/
 
 const hamburgerButton = document.getElementById('hamburger')
@@ -86,28 +95,7 @@ hamburgerButton.addEventListener('click', toggleButton)
 
 
 
-let mybutton = document.getElementById("myBtn");
-
-
-
-
-
-/*const imgButton = document.querySelector('.main');
-const url = `details.html&main=${main}`;
-
-imgButton.addEventListener('click', () => {
-    window.location.href = url;
-    movieEl.innerHTML = ` <img src="${IMG_PATH + poster_path}" alt="${title}">`;
-
-    showMovies(data.results);
-}); 
-
- //   const movieId = '12345';
- //   const movieTitle = 'The Matrix';
- //   showMovieDetails(movieId, movieTitle);
-    
-console.log(showMovies);
-
+//let mybutton = document.getElementById("myBtn");
 
 
 

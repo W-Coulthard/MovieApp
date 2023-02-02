@@ -37,9 +37,9 @@ function showMovieDetails(data) {
     <div class="movie-info">
       <h3>${title}</h3>
       <div class="overview">${overview}</div>
-      <div class="rating">${vote_average}</div>
+      <div class="rating">Rating: ${vote_average}</div>
       <div class="cast">${cast}</div>
-      <div class="release_date">${release_date}</div>
+      <div class="release_date">Release Date: ${release_date}</div>
       <div class="genres">${genres}</div>
     </div>`
 }

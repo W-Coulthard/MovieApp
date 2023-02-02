@@ -110,6 +110,11 @@ h3 {
     background-color: $secondary-color
 }
 
+.home {
+  text-decoration: none;
+  color: $primary-color;
+}
+
 main {
   display: flex;
   flex-wrap: wrap;
