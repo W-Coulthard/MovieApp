@@ -97,6 +97,7 @@ h3 {
   margin: 0;
   color: $secondary-color;
   font-size: 20px;
+  margin: 10px;
 }
 
 .search {
@@ -131,6 +132,7 @@ img {
   display: flex;
   width: 300px;
   height: 450px;
+  margin-bottom: 30px;
   }
 
 .movie img:hover {
@@ -138,23 +140,18 @@ img {
     cursor: pointer;
   }
 
-.title {
-  display: flex;
-  color: $secondary-color;
-  font-size: 30px;
-  font-weight: bold;
-}
-
 .overview {
   display: flex;
   color: $secondary-color;
   font-size: 20px;
+  margin: 10px;
 }
 
 .rating {
   display: flex;
   color: $secondary-color;
   font-size: 20px;
+  margin: 10px;
 }
 
 .cast {
@@ -167,12 +164,24 @@ img {
   display: flex;
   color: $secondary-color;
   font-size: 20px;
+  margin: 10px;
 }
 
 .genres {
   display: none;
   color: $secondary-color;
   font-size: 20px;
+}
+
+#trail-button {
+  display: flex;
+  background-color: $primary-color;
+  border: 0;
+  color: $secondary-color;
+  font-size: 20px;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 10%;
 }
 
 footer {
