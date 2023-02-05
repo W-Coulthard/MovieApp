@@ -173,7 +173,7 @@ img {
   font-size: 20px;
 }
 
-#trail-button {
+#trailer-button {
   display: flex;
   background-color: $primary-color;
   border: 0;
@@ -182,6 +182,11 @@ img {
   padding: 10px;
   margin: 10px;
   border-radius: 10%;
+}
+
+#trailer-button:hover {
+  outline: none;
+  cursor: pointer;
 }
 
 footer {
