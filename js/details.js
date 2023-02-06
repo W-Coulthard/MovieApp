@@ -41,7 +41,7 @@ function showMovieDetails(data) {
       <div class="cast">${cast}</div>
       <div class="release_date">Release Date: ${release_date}</div>
       <div class="genres">${genres}</div>
-      
+      <div class="runtime">${runtime}</div>
     </div>`
     
     
@@ -104,8 +104,19 @@ form.addEventListener('submit', (e) => {
   }
 })
 console.log(DETAILS_API)
-
+/*
 //Trailer
+const express = require("express");
+const cors = require("cors");
+const app = express();
+
+app.use(cors());
+
+app.get("/", (req, res) => {
+  res.send("Hello World!");
+});
+
+module.exports = app;
 
 const trailerButton = document.getElementById("trailer-button");
 const trailerContainer = document.getElementById("trailer-container");
@@ -113,10 +124,18 @@ const trailer = document.getElementById("trailer");
 
 trailerButton.addEventListener("click", function() {
   trailerContainer.style.display = "block";
-  trailer.src = `https://www.youtube.com/watch?v=BOzFZxB-8cw&ab_channel=WarnerBros.Pictures`;
+  trailer.src = "https://www.youtube.com/watch?v=Q0CbN8sfihY";
 });
-
-
+*/
+/*
+<button id="trailer-button">Watch Trailer</button>
+<div id="trailer-container" style="display: none;">
+    <video id="trailer" controls>
+      <source src="">
+      Your browser does not support the video tag.
+    </video>
+</div>
+*/
 /*
 ToDo:
 1. ...

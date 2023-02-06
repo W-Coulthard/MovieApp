@@ -155,9 +155,10 @@ img {
 }
 
 .cast {
-  display: none;
+  
   color: $secondary-color;
   font-size: 20px;
+  margin: 10px;
 }
 
 .release_date {
@@ -168,9 +169,17 @@ img {
 }
 
 .genres {
-  display: none;
+  
   color: $secondary-color;
   font-size: 20px;
+  margin: 10px;
+}
+
+.runtime {
+  
+  color: $secondary-color;
+  font-size: 20px;
+  margin: 10px;
 }
 
 #trailer-button {
