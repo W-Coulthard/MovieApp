@@ -29,19 +29,30 @@ const DETAILS_API = `https://api.themoviedb.org/3/movie/${movieId}?api_key=${API
 
 function showMovieDetails(data) {
   // Get the movie details from the data returned from the API
-  const { poster_path, title, vote_average, overview, cast, release_date, genres  } = data
+  const { poster_path, title, vote_average, overview, cast, release_date, tagline, genres, backdrop_path, runtime, video  } = data
+  
 
   // Create the HTML for the movie details and append to the main element
   movieContainer.innerHTML = `
-    <img src="${IMG_PATH + poster_path}" alt="${title}">
+    <div class="movieContainer">
+    <div class="titleImg"><img src="${IMG_PATH + poster_path}" alt="${title}"></div>
+    <div class="backdropImg"><img src="${IMG_PATH + backdrop_path}" alt="${title}"></div>
     <div class="movie-info">
       <h3>${title}</h3>
+    
       <div class="overview">${overview}</div>
       <div class="rating">Rating: ${vote_average}</div>
-      <div class="cast">${cast}</div>
       <div class="release_date">Release Date: ${release_date}</div>
-      <div class="genres">${genres}</div>
-      <div class="runtime">${runtime}</div>
+      <div class="runtime">${runtime}min</div>
+      <div class="genres">Genres: 
+      ${genres.map(genre => `<p>${genre.name}</p>`).join('')}
+      </div>
+      <div class="tagline">${tagline}</div>
+      <div class="cast">${cast}</div>
+      <div class="video">${video}</div>
+      
+
+    </div>
     </div>`
     
     
@@ -104,6 +115,7 @@ form.addEventListener('submit', (e) => {
   }
 })
 console.log(DETAILS_API)
+
 /*
 //Trailer
 const express = require("express");
