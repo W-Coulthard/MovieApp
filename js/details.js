@@ -47,10 +47,9 @@ function showMovieDetails(data) {
       <div class="genres">Genres: 
       ${genres.map(genre => `<p>${genre.name}</p>`).join('')}
       </div>
-      <div class="tagline">${tagline}</div>
       <div class="cast">${cast}</div>
       <div class="video">${video}</div>
-      
+      <div class="tagline">"${tagline}"</div>
 
     </div>
     </div>`

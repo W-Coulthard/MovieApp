@@ -20,6 +20,10 @@ html, body {
   color: $secondary-color;
 }
 
+body {
+  margin: 0 50px 50px 50px;
+}
+
 header {
   @include flex();
   padding: 20px;
@@ -96,9 +100,8 @@ h3 {
   display: inline;
   margin: 0;
   color: $secondary-color;
-  font-size: 20px;
+  font-size: 25px;
   margin: 10px;
-  border: #f30909 2px solid;
 }
 
 .search {
@@ -127,13 +130,32 @@ main {
   flex-wrap: wrap;
   justify-content: center;
   margin: 0 auto;
-  border: #f30909 2px solid;
 }
 
 .movieContainer {
   display: flex;
   flex-direction: flex-wrap;
+}
 
+@media only screen and (max-width: 1000px) {
+  .movieContainer {
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: column;
+  }
+
+  header {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  body {
+    margin: 0 20px 20px 20px;
+  }
+  
 }
 
 .titleImg {
@@ -141,7 +163,7 @@ main {
   flex-direction: flex-start;
   justify-content: center;
   align-items: center;
-  margin: 20px;
+  margin: 0 20px 0 20px;
   z-index: 1;
   
 }
@@ -171,7 +193,6 @@ img {
   color: $secondary-color;
   font-size: 20px;
   margin: 10px;
-  border: #f30909 2px solid;
 }
 
 .rating {
@@ -179,14 +200,13 @@ img {
   color: $secondary-color;
   font-size: 20px;
   margin: 10px;
-  border: #f30909 2px solid;
 }
 
 .cast {
-  border: #f30909 2px solid;
   color: $secondary-color;
   font-size: 20px;
   margin: 10px;
+  border: #f30909 2px solid;
 }
 
 .release_date {
@@ -206,7 +226,6 @@ img {
 }
 
 .runtime {
-  border: #f30909 2px solid;
   color: $secondary-color;
   font-size: 20px;
   margin: 10px;
@@ -217,7 +236,6 @@ img {
   color: $secondary-color;
   font-size: 20px;
   margin: 10px;
-  border: #f30909 2px solid;
 }
 
 .video {
