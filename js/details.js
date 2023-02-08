@@ -43,7 +43,7 @@ function showMovieDetails(data) {
       <div class="overview">${overview}</div>
       <div class="rating">Rating: ${vote_average}</div>
       <div class="release_date">Release Date: ${release_date}</div>
-      <div class="runtime">${runtime}min</div>
+      <div class="runtime">Runtime: ${runtime}min</div>
       <div class="genres">Genres: 
       ${genres.map(genre => `<p>${genre.name}</p>`).join('')}
       </div>

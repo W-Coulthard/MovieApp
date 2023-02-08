@@ -98,6 +98,7 @@ h3 {
   color: $secondary-color;
   font-size: 20px;
   margin: 10px;
+  border: #f30909 2px solid;
 }
 
 .search {
@@ -126,22 +127,27 @@ main {
   flex-wrap: wrap;
   justify-content: center;
   margin: 0 auto;
+  border: #f30909 2px solid;
 }
 
-.movie
+.movieContainer {
+  display: flex;
+  flex-direction: flex-wrap;
+
+}
 
 .titleImg {
   display: flex;
-  flex-direction: column;
+  flex-direction: flex-start;
   justify-content: center;
   align-items: center;
-  margin: 10px;
+  margin: 20px;
   z-index: 1;
   
 }
 
 .backdropImg {
-  display: flex;
+
   justify-content: center;
   align-items: center;
   position: absolute;
@@ -165,6 +171,7 @@ img {
   color: $secondary-color;
   font-size: 20px;
   margin: 10px;
+  border: #f30909 2px solid;
 }
 
 .rating {
@@ -172,10 +179,11 @@ img {
   color: $secondary-color;
   font-size: 20px;
   margin: 10px;
+  border: #f30909 2px solid;
 }
 
 .cast {
-  
+  border: #f30909 2px solid;
   color: $secondary-color;
   font-size: 20px;
   margin: 10px;
@@ -186,27 +194,39 @@ img {
   color: $secondary-color;
   font-size: 20px;
   margin: 10px;
+  border: #f30909 2px solid;
 }
 
 .genres {
-  
+  display: flex;
   color: $secondary-color;
   font-size: 20px;
   margin: 10px;
+  border: #f30909 2px solid;
 }
 
 .runtime {
-  
+  border: #f30909 2px solid;
   color: $secondary-color;
   font-size: 20px;
   margin: 10px;
 }
 
-.backdrop {
+.tagline {
   display: flex;
-  width: 100%;
-  height: 100%;
-  margin-bottom: 30px;
+  color: $secondary-color;
+  font-size: 20px;
+  margin: 10px;
+  border: #f30909 2px solid;
+}
+
+.video {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
+  border: #f30909 2px solid;
 }
 
 #trailer-button {
