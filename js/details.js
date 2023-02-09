@@ -7,8 +7,6 @@ function toggleButton() {
 
 hamburgerButton.addEventListener('click', toggleButton)
 
-//let mybutton = document.getElementById("myBtn");
-
 /*Retrieved Data*/
 
 const urlParams = new URLSearchParams(window.location.search);
@@ -26,11 +24,16 @@ console.log(`Movie Title: ${movieTitle}`);
 
 const movieContainer = document.querySelector("#main");
 const DETAILS_API = `https://api.themoviedb.org/3/movie/${movieId}?api_key=${API_KEY}&language=en-US`
+const CAST_API = `https://api.themoviedb.org/3/movie/${movieId}/credits?api_key=${API_KEY}&language=en-US`
 
 function showMovieDetails(data) {
   // Get the movie details from the data returned from the API
-  const { poster_path, title, vote_average, overview, cast, release_date, tagline, genres, backdrop_path, runtime, video  } = data
+  const { poster_path, title, vote_average, overview, cast = [], release_date, tagline, genres, backdrop_path, runtime, video } = data
   
+  let castList = ''
+  cast.forEach(actor => {
+    castList += `<p>${actor.name}</p>`
+  })
 
   // Create the HTML for the movie details and append to the main element
   movieContainer.innerHTML = `
@@ -39,17 +42,16 @@ function showMovieDetails(data) {
     <div class="backdropImg"><img src="${IMG_PATH + backdrop_path}" alt="${title}"></div>
     <div class="movie-info">
       <h3>${title}</h3>
-    
       <div class="overview">${overview}</div>
       <div class="rating">Rating: ${vote_average}</div>
       <div class="release_date">Release Date: ${release_date}</div>
       <div class="runtime">Runtime: ${runtime}min</div>
       <div class="genres">Genres: 
-      ${genres.map(genre => `<p>${genre.name}</p>`).join('')}
-      </div>
-      <div class="cast">${cast}</div>
+      ${genres.map(genre => `<p>${genre.name}</p>`).join(', ')}</div>
       <div class="video">${video}</div>
       <div class="tagline">"${tagline}"</div>
+      <p>Cast:</p>
+      
 
     </div>
     </div>`
@@ -84,7 +86,7 @@ const showMovies = (movies) => {
   main.innerHTML = ''
 
   movies.forEach((movie) => {
-      const { title, poster_path, vote_average, overview, id } = movie
+      const { title, poster_path, vote_average, overview, id, cast = [] } = movie
 
       const movieEl = document.createElement('div')
       movieEl.classList.add('movie')
@@ -100,6 +102,32 @@ const showMovies = (movies) => {
       main.appendChild(movieEl)
   })
 }
+
+/*Cast API*/
+fetch(`https://api.themoviedb.org/3/movie/${movieId}/credits?api_key=${API_KEY}&language=en-US`)
+  .then(response => response.json())
+  .then(data => {
+    console.log(data);
+    // do something with the cast data
+    const cast = data.cast;
+
+const castList = document.createElement('div');
+castList.classList.add('cast-list');
+
+cast.forEach(actor => {
+  const actorEl = document.createElement('p');
+  actorEl.innerText = actor.name;
+  castList.appendChild(actorEl);
+});
+
+const movieInfoEl = movieContainer.querySelector('.movie-info');
+movieInfoEl.appendChild(castList);
+
+  })
+  .catch(error => {
+    console.error('Error fetching cast data:', error);
+  });
+
 
   /*search bar*/
 form.addEventListener('submit', (e) => {
