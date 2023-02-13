@@ -140,8 +140,10 @@ main {
 @media only screen and (max-width: 1000px) {
   .movieContainer {
       display: flex;
-      flex-wrap: wrap;
       flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      border: #f30909;
   }
 
   header {
@@ -155,15 +157,19 @@ main {
   body {
     margin: 0 20px 20px 20px;
   }
-  
-  .titleImg {
+
+  img {
     display: flex;
-    width: 300px;
-    height: 450px;
-    margin: 0 20px 0 20px;
-    z-index: 1;
-      
-  }
+    
+    justify-content: center;
+    align-items: center;
+    width: 3000px;
+    height: 4050px;
+    margin-bottom: 30px;
+    border: #f30909 2px solid;
+    }
+
+
   
 }
 
@@ -184,15 +190,10 @@ main {
 }
 
 img {
-
   width: 300px;
   height: 450px;
   margin-bottom: 30px;
-  }
-
-.movie img:hover {
-    outline: none;
-    cursor: pointer;
+  border: #f30909 2px solid;
   }
 
 .overview {
