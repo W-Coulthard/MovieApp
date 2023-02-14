@@ -11,6 +11,7 @@ $tertiary-color: #000000;
 
 * {
   box-sizing: border-box;
+
 }
 
 html, body {
@@ -137,42 +138,6 @@ main {
   flex-direction: flex-wrap;
 }
 
-@media only screen and (max-width: 1000px) {
-  .movieContainer {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      border: #f30909;
-  }
-
-  header {
-    display: flex;
-    flex-direction: column;
-    padding: 20px;
-    display: flex;
-    justify-content: space-between;
-  }
-
-  body {
-    margin: 0 20px 20px 20px;
-  }
-
-  img {
-    display: flex;
-    
-    justify-content: center;
-    align-items: center;
-    width: 3000px;
-    height: 4050px;
-    margin-bottom: 30px;
-    border: #f30909 2px solid;
-    }
-
-
-  
-}
-
 .titleImg {
   display: flex;
   width: 300px;
@@ -193,7 +158,6 @@ img {
   width: 300px;
   height: 450px;
   margin-bottom: 30px;
-  border: #f30909 2px solid;
   }
 
 .overview {
@@ -260,6 +224,41 @@ p {
   color: $secondary-color;
   font-size: 20px;
   margin: 10px;
+}
+
+@media only screen and (max-width: 1000px) {
+  .movieContainer {
+    @include flex();
+      flex-direction: column;
+  }
+
+  header {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  body {
+    margin: 0 20px 20px 20px;
+  }
+
+  img {
+    width: 300px;
+    height: 450px;
+  }
+
+  h3 {
+    display: inline;
+    margin: 0;
+    color: $secondary-color;
+    font-size: 25px;
+    margin: 10px;
+    
+  }
+
+  
 }
 
 .video {

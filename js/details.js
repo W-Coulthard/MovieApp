@@ -25,6 +25,7 @@ console.log(`Movie Title: ${movieTitle}`);
 const movieContainer = document.querySelector("#main");
 const DETAILS_API = `https://api.themoviedb.org/3/movie/${movieId}?api_key=${API_KEY}&language=en-US`
 const CAST_API = `https://api.themoviedb.org/3/movie/${movieId}/credits?api_key=${API_KEY}&language=en-US`
+const TRAILER_API = `https://api.themoviedb.org/3/movie/${movieId}/videos?api_key=${API_KEY}&language=en-US`
 
 function showMovieDetails(data) {
   // Get the movie details from the data returned from the API
@@ -50,6 +51,12 @@ function showMovieDetails(data) {
       ${genres.map(genre => `<p>${genre.name}</p>`).join(', ')}</div>
       <div class="video">${video}</div>
       <div class="tagline">"${tagline}"</div>
+      <button id="trailer-button">Watch Trailer</button>
+<div id="trailer-container" style="display: block;">
+    <video id="trailer" controls>
+      <source src="">
+      Your browser does not support the video tag.
+    </video>
       <p>Cast:</p>
       
 
@@ -143,6 +150,42 @@ form.addEventListener('submit', (e) => {
 })
 console.log(DETAILS_API)
 
+//Trailer API
+
+//Trailer
+
+
+const trailerButton = document.createElement('trailer-button');
+trailerButton.innerHTML = 'Watch Trailer';
+trailerButton.classList.add('trailer-button');
+
+const movieInfo = document.querySelector('.movie-info');
+//movieInfo.appendChild(trailerButton);
+// Add an event listener to the trailer button
+trailerButton.addEventListener('click', () => {
+  getTrailerUrl();
+});
+// Function to get the trailer URL from the API
+async function getTrailerUrl() {
+  const trailersApi = TRAILER_API;
+  const res = await fetch(trailersApi);
+  const data = await res.json();
+  // Get the first trailer URL
+  const trailerUrl = data.results[0].key;
+  console.log(trailerUrl);
+  // Do something with the trailer URL, like opening it in a new window
+  window.open(TRAILER_API + trailerUrl);
+}
+window.onload = function() {
+  getTrailerUrl();
+
+  
+};
+
+
+
+
+
 /*
 //Trailer
 const express = require("express");
@@ -163,9 +206,9 @@ const trailer = document.getElementById("trailer");
 
 trailerButton.addEventListener("click", function() {
   trailerContainer.style.display = "block";
-  trailer.src = "https://www.youtube.com/watch?v=Q0CbN8sfihY";
+  trailer.src = "https://www.youtube.com/embed/9O1Iy9od7-A";
 });
-*/
+
 /*
 <button id="trailer-button">Watch Trailer</button>
 <div id="trailer-container" style="display: none;">
@@ -177,7 +220,7 @@ trailerButton.addEventListener("click", function() {
 */
 /*
 ToDo:
-1. ...
+1. cast delay
 2. Add trailer
 3. css
 */
