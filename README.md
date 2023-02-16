@@ -17,7 +17,7 @@ To use MediaFox, simply open the application in a web browser and search for a m
 To run MediaFox locally, follow these steps:
 
 1. Clone the repository to your local machine.
-3. Open `index.html` in a web browser.
+2. Open `index.html` in a web browser.
 
 ## Credits
 
