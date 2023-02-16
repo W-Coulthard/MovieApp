@@ -174,13 +174,6 @@ img {
   margin: 10px;
 }
 
-.cast {
-  color: $secondary-color;
-  font-size: 20px;
-  margin: 10px;
-  border: #f30909 2px solid;
-}
-
 .cast-list {
   align-self: start;
   color: $secondary-color;
@@ -189,11 +182,18 @@ img {
   border: #f30909 2px solid;
 }
 
+.actor {
+  display: inline-block;
+  margin: 10px;
+  border: #f30909 2px solid;
+}
+/*
 p {
   display: inline-block;
   margin: 10px;
+  border: #f30909 2px solid;
 }
-
+*/
 .release_date {
   display: flex;
   color: $secondary-color;
@@ -257,20 +257,10 @@ p {
     margin: 10px;
     
   }
-
   
 }
 
-.video {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin: 10px;
-  border: #f30909 2px solid;
-}
-
-#trailer-button {
+.trailer-button {
   display: flex;
   background-color: $primary-color;
   border: 0;
