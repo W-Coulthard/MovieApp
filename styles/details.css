@@ -227,7 +227,6 @@ p {
     display: flex;
     flex-direction: column;
     padding: 20px;
-    display: flex;
     justify-content: space-between;
   }
   body {

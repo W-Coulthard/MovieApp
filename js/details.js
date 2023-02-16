@@ -87,7 +87,8 @@ async function getTrailerUrl() {
 trailerButton.addEventListener('click', getTrailerUrl);
 
 /*Cast API*/
-fetch(`https://api.themoviedb.org/3/movie/${movieId}/credits?api_key=${API_KEY}&language=en-US`)
+setTimeout(() => {
+  fetch(`https://api.themoviedb.org/3/movie/${movieId}/credits?api_key=${API_KEY}&language=en-US`)
   .then(response => response.json())
   .then(data => {
   // console.log(data);
@@ -96,6 +97,8 @@ fetch(`https://api.themoviedb.org/3/movie/${movieId}/credits?api_key=${API_KEY}&
 
 const castList = document.createElement('div');
 castList.classList.add('cast-list');
+
+
 
 cast.forEach(actor => {
   const actorEl = document.createElement('p');
@@ -112,6 +115,11 @@ movieInfoEl.appendChild(castList);
     console.error('Error fetching cast data:', error);
   });
 }
+, 1000);
+}
+//END
+
+// Function to get the movie details from the API
 
 async function getMovieDetails() {
   const res = await fetch(DETAILS_API)
@@ -119,10 +127,8 @@ async function getMovieDetails() {
 
   showMovieDetails(data)
 }
-
 // Call the function to get and show the movie details
 getMovieDetails();
-//END
 
 const getMovies = (url) => {
   fetch(url)  
@@ -154,6 +160,22 @@ const showMovies = (movies) => {
   })
 }
 
+  /*search bar*/
+
+form.addEventListener('submit', (e) => {
+  e.preventDefault();
+  const searchTerm = search.value;
+  if (searchTerm && searchTerm !== '') {
+      const SEARCH_API = `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&query=${searchTerm}&language=en-US`
+      getMovies(SEARCH_API);
+      search.value = '';
+  } else {
+      window.location.reload();
+  }
+})
+console.log(DETAILS_API)
+
+
 /*Cast API*/
 /*
 fetch(`https://api.themoviedb.org/3/movie/${movieId}/credits?api_key=${API_KEY}&language=en-US`)
@@ -182,22 +204,5 @@ movieInfoEl.appendChild(castList);
   });
 
 */
-  /*search bar*/
-
-form.addEventListener('submit', (e) => {
-  e.preventDefault();
-  const searchTerm = search.value;
-  if (searchTerm && searchTerm !== '') {
-      const SEARCH_API = `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&query=${searchTerm}&language=en-US`
-      getMovies(SEARCH_API);
-      search.value = '';
-  } else {
-      window.location.reload();
-  }
-})
-console.log(DETAILS_API)
-
-
-
 
 
