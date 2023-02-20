@@ -19,6 +19,7 @@ html, body {
   overflow-x: hidden;
   background: $tertiary-color;
   color: $secondary-color;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -102,7 +103,7 @@ h3 {
   margin: 0;
   color: $secondary-color;
   font-size: 25px;
-  margin: 10px;
+  margin: 20px;
 }
 
 .search {
@@ -160,52 +161,55 @@ img {
   margin-bottom: 30px;
   }
 
-.overview {
-  display: flex;
-  color: $secondary-color;
-  font-size: 20px;
-  margin: 10px;
-}
+  .overview {
+    display: flex;
+    color: $secondary-color;
+    font-size: 20px;
+    margin: 20px;
+  }
+  
 
 .rating {
   display: flex;
   color: $secondary-color;
   font-size: 20px;
-  margin: 10px;
+  margin: 20px;
 }
-
+/*
 .cast-list {
   align-self: start;
   color: $secondary-color;
   font-size: 20px;
-  margin: 10px;
-  border: #f30909 2px solid;
+  margin: 20px;
+}
+*/
+.cast-member {
+  align-self: start;
+  margin: 20px;
+  font-size: 20px; 
 }
 
-.actor {
-  display: inline-block;
-  margin: 10px;
-  border: #f30909 2px solid;
+.hidden {
+  display: none;
 }
 /*
-p {
+.actor {
   display: inline-block;
-  margin: 10px;
-  border: #f30909 2px solid;
+  margin: 20px;
 }
 */
 .release_date {
   display: flex;
   color: $secondary-color;
   font-size: 20px;
-  margin: 10px;
+  margin: 20px;
 }
 
 .genres {
   align-self: start;
   color: $secondary-color;
   font-size: 20px;
-  margin: 10px;
+  margin: 20px;
 }
 
 .genres p {
@@ -216,14 +220,14 @@ p {
 .runtime {
   color: $secondary-color;
   font-size: 20px;
-  margin: 10px;
+  margin: 20px;
 }
 
 .tagline {
   display: flex;
   color: $secondary-color;
   font-size: 20px;
-  margin: 10px;
+  margin: 20px;
 }
 
 @media only screen and (max-width: 1000px) {
@@ -253,7 +257,7 @@ p {
     margin: 0;
     color: $secondary-color;
     font-size: 25px;
-    margin: 10px;
+    margin: 20px;
     
   }
   
@@ -266,7 +270,7 @@ p {
   color: $secondary-color;
   font-size: 20px;
   padding: 10px;
-  margin: 10px;
+  margin: 20px;
   border-radius: 10%;
 }
 
