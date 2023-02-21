@@ -44,7 +44,7 @@ function showMovieDetails(data) {
         <div class="runtime">Runtime: ${runtime}min</div>
         <div class="genres">Genres: ${genres.map(genre => `<p>${genre.name}</p>`).join(', ')}</div>
         <div class="tagline">Tagline: "${tagline}"</div>
-        
+        <div class="cast">Cast:</div>
       </div>
     </div>
   `;
@@ -82,6 +82,8 @@ function showMovieDetails(data) {
 
 
 } // End showMovieDetails()
+
+//Cast List
 
 setTimeout(() => {
   fetch(CAST_API)
