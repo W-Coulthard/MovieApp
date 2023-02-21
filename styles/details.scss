@@ -106,6 +106,15 @@ h3 {
   margin: 20px;
 }
 
+h4 {
+  display: inline;
+  margin: 0;
+  color: $secondary-color;
+  font-size: 20px;
+  margin: 0;
+  margin-right: 10px;
+}
+
 .search {
   background-color: transparent;
   border-radius: 10%;
@@ -178,7 +187,7 @@ img {
 
 .cast-list {
   font-size: 20px;
-  margin: 20px;
+  margin:20px;
 }
 
 .cast-word {
@@ -196,12 +205,15 @@ img {
 .hidden {
   display: none;
 }
-/*
-.actor {
-  display: inline-block;
-  margin: 20px;
+
+.more-link {
+  color: $primary-color;
 }
-*/
+
+.more-link:hover {
+  cursor: pointer;
+}
+
 .release_date {
   display: flex;
   color: $secondary-color;
