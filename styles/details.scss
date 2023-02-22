@@ -99,8 +99,7 @@ h1 {
 }
 
 h3 {
-  display: inline;
-  margin: 0;
+  display: inline; 
   color: $secondary-color;
   font-size: 25px;
   margin: 20px;
@@ -127,8 +126,8 @@ h4 {
 }
 
 #search:focus {
-    outline: none;
-    background-color: $secondary-color
+  outline: none;
+  background-color: $secondary-color
 }
 
 .home {
@@ -152,7 +151,7 @@ main {
   display: flex;
   width: 300px;
   height: 450px;
-  margin: 20px;
+  margin: 10px;
   
   }
 
@@ -170,14 +169,13 @@ img {
   margin-bottom: 30px;
   }
 
-  .overview {
-    display: flex;
-    color: $secondary-color;
-    font-size: 20px;
-    margin: 20px;
-  }
+.overview {
+  display: flex;
+  color: $secondary-color;
+  font-size: 20px;
+  margin: 20px;
+}
   
-
 .rating {
   display: flex;
   color: $secondary-color;
@@ -269,7 +267,7 @@ img {
   }
 
   h3 {
-    display: inline;
+    display: flex;
     margin: 0;
     color: $secondary-color;
     font-size: 25px;
