@@ -29,7 +29,7 @@ const TRAILER_API = `https://api.themoviedb.org/3/tv/${tv_id}/videos?api_key=${A
 
 function showMovieDetails(data) {
   // Get the movie details from the data returned from the API
-  const { poster_path, title, vote_average, overview, release_date, tagline, genres, backdrop_path, runtime } = data;
+  const { poster_path, title, first_air_date, original_name, seasons, vote_average, overview, release_date, tagline, genres, backdrop_path, runtime } = data;
 
   // Create the HTML for the movie details and append to the main element
   movieContainer.innerHTML = `
@@ -37,13 +37,12 @@ function showMovieDetails(data) {
       <div class="titleImg"><img src="${IMG_PATH + poster_path}" alt="${title}"></div>
       <div class="backdropImg"><img src="${IMG_PATH + backdrop_path}" alt="${title}"></div>
       <div class="movie-info">
-        <h3>${title}</h3>
+        <h3>${original_name}</h3>
         <div class="overview">${overview}</div>
         <div class="rating">Rating: ${vote_average}</div>
-        <div class="release_date">Release Date: ${release_date}</div>
         <div class="genres">Genres: ${genres.map(genre => `<p>${genre.name}</p>`).join(', ')}</div>
-        <div class="tagline">Tagline: "${tagline}"</div>
-        
+        <div class="first_air_date"> First Air Date: ${first_air_date}</div> 
+        <div class="seasons"> Seasons: ${seasons.length}</div>
       </div>
     </div>
   `;

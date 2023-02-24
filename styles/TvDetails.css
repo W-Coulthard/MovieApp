@@ -1,0 +1,287 @@
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  font-family: "Poppins", sans-serif;
+  overflow-x: hidden;
+  background: #000000;
+  color: #e9dede;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0 50px 50px 50px;
+}
+
+header {
+  display: flex;
+  flex-direction: center;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+a {
+  text-decoration: none;
+  color: #f30909;
+}
+
+/*Hamburger*/
+.hamburger {
+  display: block;
+  margin-left: 20px;
+  margin-top: 25px;
+  margin-bottom: 20px;
+  margin-right: 20px;
+  font-size: 30px;
+  color: white;
+  background-color: transparent;
+  border: 0;
+  align-self: flex-end;
+  z-index: 1;
+}
+
+.hamburger:hover {
+  outline: none;
+  cursor: pointer;
+}
+
+ul {
+  display: none;
+  margin: 0px;
+}
+
+ul.show {
+  display: flex;
+  position: absolute;
+  margin-left: 50px;
+  flex-direction: column;
+}
+
+nav {
+  display: flex;
+}
+
+nav ul li {
+  text-decoration: none;
+  list-style: none;
+  margin: 5px;
+  color: white;
+  background-color: #e9dede;
+  font-family: "Poppins", sans-serif;
+}
+
+/*end of hamburger*/
+.logo {
+  display: flex;
+  flex-direction: column;
+  margin: 15px;
+}
+
+h1 {
+  margin: 0;
+  color: #f30909;
+  font-size: 50px;
+}
+
+h3 {
+  display: inline;
+  color: #e9dede;
+  font-size: 25px;
+  margin: 20px;
+}
+
+h4 {
+  display: inline;
+  margin: 0;
+  color: #e9dede;
+  font-size: 20px;
+  margin: 0;
+  margin-right: 10px;
+}
+
+.search {
+  background-color: transparent;
+  border-radius: 10%;
+  border: 2px solid #e9dede;
+  padding: 0.5rem 10px;
+  font-size: 1rem;
+  align-items: flex-end;
+  margin-left: 10px;
+  margin-right: 25px;
+}
+
+#search:focus {
+  outline: none;
+  background-color: #e9dede;
+}
+
+.home {
+  text-decoration: none;
+  color: #f30909;
+}
+
+main {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+.movieContainer {
+  display: flex;
+  flex-direction: flex-wrap;
+}
+
+.titleImg {
+  display: flex;
+  width: 300px;
+  height: 450px;
+  margin: 10px;
+}
+
+.backdropImg {
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  display: none;
+}
+
+img {
+  width: 300px;
+  height: 450px;
+  margin-bottom: 30px;
+}
+
+.overview {
+  display: flex;
+  color: #e9dede;
+  font-size: 20px;
+  margin: 20px;
+}
+
+.rating {
+  display: flex;
+  color: #e9dede;
+  font-size: 20px;
+  margin: 20px;
+}
+
+.cast-list {
+  font-size: 20px;
+  margin: 20px;
+}
+
+.cast-word {
+  margin: 20px;
+  font-size: 20px;
+  color: #e2d1d1;
+}
+
+.cast-member {
+  display: inline-block;
+  margin: 5px 20px 20px 0;
+  font-size: 20px;
+}
+
+.hidden {
+  display: none;
+}
+
+.more-link {
+  color: #f30909;
+}
+
+.more-link:hover {
+  cursor: pointer;
+}
+
+.seasons {
+  display: flex;
+  color: #e9dede;
+  font-size: 20px;
+  margin: 20px;
+}
+
+.genres {
+  align-self: start;
+  color: #e9dede;
+  font-size: 20px;
+  margin: 20px;
+}
+
+.genres p {
+  display: inline-block;
+  margin: 0;
+}
+
+.runtime {
+  color: #e9dede;
+  font-size: 20px;
+  margin: 20px;
+}
+
+.first_air_date {
+  display: flex;
+  color: #e9dede;
+  font-size: 20px;
+  margin: 20px;
+}
+
+@media only screen and (max-width: 1000px) {
+  .movieContainer {
+    display: flex;
+    flex-direction: center;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  header {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    justify-content: space-between;
+  }
+  body {
+    margin: 0 20px 20px 20px;
+  }
+  img {
+    width: 300px;
+    height: 450px;
+  }
+  h3 {
+    display: flex;
+    margin: 0;
+    color: #e9dede;
+    font-size: 25px;
+    margin: 20px;
+  }
+}
+.trailer-button {
+  display: flex;
+  background-color: #f30909;
+  border: 0;
+  color: #e9dede;
+  font-size: 20px;
+  padding: 10px;
+  margin: 20px;
+  border-radius: 10%;
+}
+
+#trailer-button:hover {
+  outline: none;
+  cursor: pointer;
+}
+
+footer {
+  display: flex;
+  flex-direction: center;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 15px;
+  color: #e9dede;
+}/*# sourceMappingURL=TvDetails.css.map */
