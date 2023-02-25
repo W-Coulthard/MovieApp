@@ -95,11 +95,6 @@ hamburgerButton.addEventListener('click', toggleButton)
 
 
 
-//let mybutton = document.getElementById("myBtn");
-
-
-
-
 
 /*scroll to top*/
 /*

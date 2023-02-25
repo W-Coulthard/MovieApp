@@ -139,7 +139,7 @@ setTimeout(() => {
     .catch(error => {
       console.error('Error fetching cast data:', error);
     });
-}, 100);
+}, 200);
 
 
 // Function to get the movie details from the API
@@ -166,15 +166,13 @@ const showMovies = (movies) => {
   main.innerHTML = ''
 
   movies.forEach((movie) => {
-      const { title, poster_path, vote_average, overview, id, cast = [] } = movie
+      const { title, poster_path, id, } = movie
 
       const movieEl = document.createElement('div')
       movieEl.classList.add('movie')
 
       movieEl.innerHTML = `
-          <img src="${IMG_PATH + poster_path}" alt="${title}">
-          <div class="movie-info">
-              <h3>${title}</h3>`
+          <img src="${IMG_PATH + poster_path}" alt="${title}">`
 
       movieEl.addEventListener('click', () => {
         window.location.href = `details.html?id=${id}&title=${title}`
@@ -189,7 +187,7 @@ form.addEventListener('submit', (e) => {
   e.preventDefault();
   const searchTerm = search.value;
   if (searchTerm && searchTerm !== '') {
-      const SEARCH_API = `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&query=${searchTerm}&language=en-US`
+      const SEARCH_API = `https://api.themoviedb.org/3/search/multi?api_key=25afca5b22e187755c2665b7a304437e&language=en-US&page=1&include_adult=false&query=${searchTerm}`
       getMovies(SEARCH_API);
       search.value = '';
   } else {

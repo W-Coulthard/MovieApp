@@ -1,3 +1,14 @@
+/*hamburger*/
+
+const hamburgerButton = document.getElementById('hamburger')
+const navList = document.getElementById('nav-list')
+
+function toggleButton() {
+    navList.classList.toggle('show')
+}
+
+hamburgerButton.addEventListener('click', toggleButton)
+
 const API_URL = 'https://api.themoviedb.org/3/discover/movie?api_key=25afca5b22e187755c2665b7a304437e&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_watch_monetization_types=flatrate';
 const IMG_PATH = 'https://image.tmdb.org/t/p/w1280';
 
@@ -71,31 +82,19 @@ imgButton.addEventListener('click', (event) => {
 /*search bar*/
 
 form.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const searchTerm = search.value;
-    if (searchTerm && searchTerm !== '') {
-        const SEARCH_API = `https://api.themoviedb.org/3/search/multi?api_key=25afca5b22e187755c2665b7a304437e&language=en-US&page=1&include_adult=false&query=${searchTerm}`
-        getMovies(SEARCH_API);
-        search.value = '';
-    } else {
-        window.location.reload();
-    }
+  e.preventDefault();
+  const searchTerm = search.value;
+  if (searchTerm && searchTerm !== '') {
+      const SEARCH_API = `https://api.themoviedb.org/3/search/multi?api_key=25afca5b22e187755c2665b7a304437e&language=en-US&page=1&include_adult=false&query=${searchTerm}`
+      getMovies(SEARCH_API);
+      search.value = '';
+  } else {
+      window.location.reload();
+  }
 })
-
-/*hamburger*/
-
-const hamburgerButton = document.getElementById('hamburger')
-const navList = document.getElementById('nav-list')
-
-function toggleButton() {
-    navList.classList.toggle('show')
-}
-
-hamburgerButton.addEventListener('click', toggleButton)
+console.log(DETAILS_API)
 
 
-
-//let mybutton = document.getElementById("myBtn");
 
 
 
