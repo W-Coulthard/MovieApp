@@ -5,7 +5,7 @@
   align-items: center;
 }
 
-$primary-color: #f30909;
+$primary-color: #DB202C;
 $secondary-color: #e9dede;
 $tertiary-color: #000000;
 
@@ -90,6 +90,11 @@ nav ul li {
   display: flex;
   flex-direction: column;
   margin: 15px;
+}
+
+#flix {
+  height: auto;
+  width: auto;
 }
 
 h1 {
@@ -273,6 +278,11 @@ img {
     font-size: 25px;
     margin: 20px;
     
+  }
+
+  #flix {
+    height: auto;
+    width: auto;
   }
   
 }

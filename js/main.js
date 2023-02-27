@@ -39,27 +39,28 @@ function showMovies(movies) {
     main.innerHTML = '';
 
     movies.forEach(async (movie) => {
-        const { id, poster_path, title, vote_average, overview, release_date } = movie;
-        const details = await getMovieDetails(id);
-        const cast = details.credits.cast.map(actor => actor.name).slice(0, 5).join(', ');
-        const genres = details.genres.map(genre => genre.name).join(', ');
-
-        const movieEl = document.createElement('div');
-        movieEl.classList.add('movie');
-        movieEl.innerHTML = `
-          <img src="${IMG_PATH + poster_path}" alt="${title}">
-          <div class="movie-info">
-            <h3>${title}</h3>
-            <div class="overview">${overview}</div>
-            <div class="rating">${vote_average}</div>
-            <div class="cast">${cast}</div>
-            <div class="release_date">${release_date}</div>
-            <div class="genres">${genres}</div>
-          </div>`;
-
-        movieEl.setAttribute('data-id', id);
-        movieEl.setAttribute('data-title', title);
-        main.appendChild(movieEl);
+      const { id, poster_path, title, vote_average, overview, release_date, media_type } = movie;
+      const details = await getMovieDetails(id);
+      const cast = details.credits.cast.map(actor => actor.name).slice(0, 5).join(', ');
+      const genres = details.genres.map(genre => genre.name).join(', ');
+      
+      const movieEl = document.createElement('div');
+      movieEl.classList.add('movie');
+      movieEl.innerHTML = `
+        <img src="${IMG_PATH + poster_path}" alt="${title}" data-type="${media_type}">
+        <div class="movie-info">
+          <h3>${title}</h3>
+          <div class="overview">${overview}</div>
+          <div class="rating">${vote_average}</div>
+          <div class="cast">${cast}</div>
+          <div class="release_date">${release_date}</div>
+          <div class="genres">${genres}</div>
+        </div>`;
+      
+      movieEl.setAttribute('data-id', id);
+      movieEl.setAttribute('data-title', title);
+      main.appendChild(movieEl);
+      
     });
 }
 
@@ -92,11 +93,6 @@ form.addEventListener('submit', (e) => {
       window.location.reload();
   }
 })
-console.log(DETAILS_API)
-
-
-
-
 
 
 
@@ -117,37 +113,3 @@ function topFunction() {
 }
 */
 
-/*trending tv api*/
-/*
-fetch("https://api.themoviedb.org/3/trending/tv/week?api_key=25afca5b22e187755c2665b7a304437e")
-  .then(response => response.json())
-  .then(data => {
-    const list = data.results;
-      
-    list.map(item => {
-      const title = item.name;
-      const poster = item.poster_path;
-      const tv = `<li><img src="https://image.tmdb.org/t/p/w500${poster}" alt="${title}"></li>`;
-      document.querySelector(".tv").innerHTML += tv;
-    });
-  })
-  .catch(error => console.error(error));
-
-
-
-/*trending movies api*/
-/*
-fetch("https://api.themoviedb.org/3/trending/movie/week?api_key=25afca5b22e187755c2665b7a304437e")
-  .then(response => response.json())
-  .then(data => {
-    const list = data.results;
-
-    list.map(item => {
-      const title = item.title;
-      const poster = item.poster_path;
-      const movie = `<li><img src="https://image.tmdb.org/t/p/w500${poster}" alt="${title}"></li>`;
-      document.querySelector(".movies").innerHTML += movie;
-    });
-  })
-  .catch(error => console.error(error));
-*/

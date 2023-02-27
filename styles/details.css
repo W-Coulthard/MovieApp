@@ -26,7 +26,7 @@ header {
 
 a {
   text-decoration: none;
-  color: #f30909;
+  color: #DB202C;
 }
 
 /*Hamburger*/
@@ -81,9 +81,14 @@ nav ul li {
   margin: 15px;
 }
 
+#flix {
+  height: auto;
+  width: auto;
+}
+
 h1 {
   margin: 0;
-  color: #f30909;
+  color: #DB202C;
   font-size: 50px;
 }
 
@@ -121,7 +126,7 @@ h4 {
 
 .home {
   text-decoration: none;
-  color: #f30909;
+  color: #DB202C;
 }
 
 main {
@@ -192,7 +197,7 @@ img {
 }
 
 .more-link {
-  color: #f30909;
+  color: #DB202C;
 }
 
 .more-link:hover {
@@ -259,10 +264,14 @@ img {
     font-size: 25px;
     margin: 20px;
   }
+  #flix {
+    height: auto;
+    width: auto;
+  }
 }
 .trailer-button {
   display: flex;
-  background-color: #f30909;
+  background-color: #DB202C;
   border: 0;
   color: #e9dede;
   font-size: 20px;

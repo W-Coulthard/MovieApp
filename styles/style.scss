@@ -5,7 +5,7 @@
   align-items: center;
 }
 
-$primary-color: #f30909;
+$primary-color: #DB202C;
 $secondary-color: #e9dede;
 $tertiary-color: #000000;
 
@@ -18,6 +18,7 @@ html, body {
   overflow-x: hidden;
   background: $tertiary-color;
   color: $secondary-color;
+  scroll-behavior: smooth;
 }
 
 header {
@@ -25,6 +26,7 @@ header {
   padding: 20px;
   display: flex;
   justify-content: space-between;
+  margin: 0 50px 0 50px;
 }
 
 /*Hamburger*/
@@ -113,6 +115,7 @@ h3 {
 .home {
   text-decoration: none;
   color: $primary-color;
+
 }
 
 main {
@@ -209,6 +212,11 @@ main {
   img {
     width: 300px;
     height: 450px;
+  }
+
+  #flix {
+    height: auto;
+    width: auto;
   }
   
 }

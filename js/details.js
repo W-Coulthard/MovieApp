@@ -29,7 +29,7 @@ const TRAILER_API = `https://api.themoviedb.org/3/movie/${movieId}/videos?api_ke
 
 function showMovieDetails(data) {
   // Get the movie details from the data returned from the API
-  const { poster_path, title, vote_average, overview, cast = [], release_date, tagline, genres, backdrop_path, runtime } = data;
+  const { poster_path, title, vote_average, overview, release_date, tagline, genres, backdrop_path, runtime } = data;
 
   // Create the HTML for the movie details and append to the main element
   movieContainer.innerHTML = `
@@ -196,10 +196,3 @@ form.addEventListener('submit', (e) => {
 })
 console.log(DETAILS_API)
 
-
-/*
-      const castWord = document.createElement('div');
-      castWord.classList.add('cast-word');
-      castWord.innerText = 'Cast:';
-      movieContainer.appendChild(castWord);
-      */
