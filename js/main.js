@@ -9,7 +9,9 @@ function toggleButton() {
 
 hamburgerButton.addEventListener('click', toggleButton)
 
-const API_URL = 'https://api.themoviedb.org/3/discover/movie?api_key=25afca5b22e187755c2665b7a304437e&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_watch_monetization_types=flatrate';
+//Dependencies
+
+const API_URL = 'https://api.themoviedb.org/3/discover/movie?api_key=25afca5b22e187755c2665b7a304437e&language=en-US&sort_by=vote_count.desc&include_adult=false&include_video=false&page=1&with_watch_monetization_types=flatrate';
 const IMG_PATH = 'https://image.tmdb.org/t/p/w1280';
 
 const main = document.getElementById('main');
