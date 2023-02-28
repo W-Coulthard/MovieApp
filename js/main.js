@@ -1,17 +1,29 @@
 /*hamburger*/
 
-const hamburgerButton = document.getElementById('hamburger')
-const navList = document.getElementById('nav-list')
+const nav = document.querySelector(".nav-container");
 
-function toggleButton() {
-    navList.classList.toggle('show')
+if (nav) {
+  const toggle = nav.querySelector(".nav-toggle");
+  
+  if (toggle) {
+    toggle.addEventListener("click", () => {
+      if (nav.classList.contains("is-active")) {
+        nav.classList.remove("is-active");
+      }
+      else {
+        nav.classList.add("is-active");
+      }
+    });
+    
+    nav.addEventListener("blur", () => {
+      nav.classList.remove("is-active");
+    });
+  }
 }
-
-hamburgerButton.addEventListener('click', toggleButton)
 
 //Dependencies
 
-const API_URL = 'https://api.themoviedb.org/3/discover/movie?api_key=25afca5b22e187755c2665b7a304437e&language=en-US&sort_by=vote_count.desc&include_adult=false&include_video=false&page=1&with_watch_monetization_types=flatrate';
+const API_URL = 'https://api.themoviedb.org/3/discover/movie?api_key=25afca5b22e187755c2665b7a304437e&language=en-US&sort_by=vote_count.desc&include_adult=false&include_video=false&page=1&with_watch_monetization_types=flatrate&page=1';
 const IMG_PATH = 'https://image.tmdb.org/t/p/w1280';
 
 const main = document.getElementById('main');
