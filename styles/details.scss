@@ -20,12 +20,18 @@ html {
   background: $tertiary-color;
   color: $secondary-color;
   scroll-behavior: smooth;
+}
+
+.wrapper {
+  min-height: 100vh;
   box-shadow: inset 0 0 25px rgba(148, 3, 3, 0.479);
 }
 
+
 body {
-  margin: 0 50px 50px 50px;
+  margin: 0;
 }
+
 
 header {
   @include flex();
@@ -327,7 +333,7 @@ img {
   border-radius: 10%;
 }
 
-#trailer-button:hover {
+.trailer-button:hover {
   outline: none;
   cursor: pointer;
 }
@@ -345,10 +351,6 @@ img {
     justify-content: space-between;
   }
 
-  body {
-    margin: 0 20px 20px 20px;
-  }
-
   img {
     width: 300px;
     height: 450px;
@@ -358,6 +360,8 @@ img {
     height: auto;
     width: auto;
   }
+
+//hamburger menu
 
   $toggleSize: 30px;
 $toggleMargin: 20px;
@@ -410,13 +414,20 @@ $toggleColor: #e9dede;
     box-shadow: 0 0 50px rgba(219, 216, 216, 0.116);
     display: none;
   }
+ }
 
-}
+//hamburger end 
 }
 
 footer {
-  @include flex();
-  flex-direction: column;
-  margin: 15px;
-  color: $secondary-color;
+  bottom: 0;
+  width: 100%;
+  left: 0;
+  right: 0;
+  text-align: center;
+
+  p {
+    margin: 0;
+    padding: 0;
+  }
 }

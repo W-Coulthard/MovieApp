@@ -8,11 +8,15 @@ html {
   background: #000000;
   color: #e9dede;
   scroll-behavior: smooth;
+}
+
+.wrapper {
+  min-height: 100vh;
   box-shadow: inset 0 0 25px rgba(148, 3, 3, 0.479);
 }
 
 body {
-  margin: 0 50px 50px 50px;
+  margin: 0;
 }
 
 header {
@@ -290,7 +294,7 @@ img {
   border-radius: 10%;
 }
 
-#trailer-button:hover {
+.trailer-button:hover {
   outline: none;
   cursor: pointer;
 }
@@ -308,9 +312,6 @@ img {
     flex-direction: column;
     padding: 20px;
     justify-content: space-between;
-  }
-  body {
-    margin: 0 20px 20px 20px;
   }
   img {
     width: 300px;
@@ -366,11 +367,13 @@ img {
   }
 }
 footer {
-  display: flex;
-  flex-direction: center;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  margin: 15px;
-  color: #e9dede;
+  bottom: 0;
+  width: 100%;
+  left: 0;
+  right: 0;
+  text-align: center;
+}
+footer p {
+  margin: 0;
+  padding: 0;
 }/*# sourceMappingURL=details.css.map */
