@@ -2,12 +2,13 @@
   box-sizing: border-box;
 }
 
-html, body {
+html {
   font-family: "Poppins", sans-serif;
   overflow-x: hidden;
   background: #000000;
   color: #e9dede;
   scroll-behavior: smooth;
+  box-shadow: inset 0 0 25px rgba(148, 3, 3, 0.479);
 }
 
 body {
@@ -278,6 +279,22 @@ img {
   margin: 20px;
 }
 
+.trailer-button {
+  display: flex;
+  background-color: #DB202C;
+  border: 0;
+  color: #e9dede;
+  font-size: 20px;
+  padding: 10px;
+  margin: 20px;
+  border-radius: 10%;
+}
+
+#trailer-button:hover {
+  outline: none;
+  cursor: pointer;
+}
+
 @media only screen and (max-width: 768px) {
   .movieContainer {
     display: flex;
@@ -348,22 +365,6 @@ img {
     display: none;
   }
 }
-.trailer-button {
-  display: flex;
-  background-color: #DB202C;
-  border: 0;
-  color: #e9dede;
-  font-size: 20px;
-  padding: 10px;
-  margin: 20px;
-  border-radius: 10%;
-}
-
-#trailer-button:hover {
-  outline: none;
-  cursor: pointer;
-}
-
 footer {
   display: flex;
   flex-direction: center;
