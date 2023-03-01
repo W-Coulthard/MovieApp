@@ -1,3 +1,26 @@
+//Hamburger Menu
+
+const nav = document.querySelector(".nav-container");
+
+if (nav) {
+  const toggle = nav.querySelector(".nav-toggle");
+  
+  if (toggle) {
+    toggle.addEventListener("click", () => {
+      if (nav.classList.contains("is-active")) {
+        nav.classList.remove("is-active");
+      }
+      else {
+        nav.classList.add("is-active");
+      }
+    });
+    
+    nav.addEventListener("blur", () => {
+      nav.classList.remove("is-active");
+    });
+  }
+}
+
 const API_URL = 'https://api.themoviedb.org/3/trending/tv/week?api_key=25afca5b22e187755c2665b7a304437e';
 const IMG_PATH = 'https://image.tmdb.org/t/p/w1280';
 
@@ -81,19 +104,6 @@ form.addEventListener('submit', (e) => {
         window.location.reload();
     }
 })
-
-/*hamburger*/
-
-const hamburgerButton = document.getElementById('hamburger')
-const navList = document.getElementById('nav-list')
-
-function toggleButton() {
-    navList.classList.toggle('show')
-}
-
-hamburgerButton.addEventListener('click', toggleButton)
-
-
 
 
 /*scroll to top*/

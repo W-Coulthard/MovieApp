@@ -109,7 +109,6 @@ $toggleColor: #e9dede;
     z-index: 1;
     padding: 80px 20px 20px 10px;
     transition: transform .3s ease;
-    transform: translate(calc(-100% - 50px), 0);
     background: #03030383;
     display: grid;
     grid-template-columns: 1fr;
@@ -140,7 +139,6 @@ $toggleColor: #e9dede;
   display: flex;
   flex-direction: column;
 }
-
 
 /*end of hamburger*/
 

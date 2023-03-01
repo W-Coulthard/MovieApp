@@ -38,53 +38,119 @@
     color: $primary-color;
   }
   
-  /*Hamburger*/
+/*Hamburger*/
+$toggleSize: 30px;
+$toggleMargin: 20px;
+$toggleLine: 4px;
+$toggleColor: #e9dede;
+
+.nav-container {
+  position: relative;
+  display: inline-block;
+  max-width: $toggleSize + $toggleMargin;
+  max-height: $toggleSize + $toggleMargin;
+  overflow: visible;
+  outline: none;
   
-  .hamburger {
-    display: block;
-    margin-left: 20px;
-    margin-top: 25px;
-    margin-bottom: 20px;
-    margin-right: 20px;
-    font-size: 30px;
-    color: white;
-    background-color: transparent;
-    border: 0;
-    align-self: flex-end;
-    z-index: 1;
+  //&:focus-within, &:focus {
+  &.is-active {
+    .nav-toggle {
+      &:before, &:after {
+        box-shadow: none;
+      }
+      
+      &:before {
+        transform: rotate(-45deg);
+      }
+      
+      &:after {
+        transform: rotate(45deg);
+      }
+    }
+    
+    .nav-items {
+      transform: translate(0, 0);
+    }
   }
   
-  .hamburger:hover {
-    outline: none;
-    cursor: pointer;
+  .nav-toggle {
+    $offset: $toggleSize * 0.5;
+    
+    position: relative;
+    width: $toggleSize;
+    height: $toggleSize;
+    margin: $toggleMargin;
+    z-index: 2;
+    
+    &:hover {
+      cursor: pointer;
+    }
+      
+    &:before, &:after {
+      content: "";
+      position: absolute;
+      top: #{$offset - $toggleLine / 2};
+      left: 0;
+      transform: translate(0, 0);
+      width: 100%;
+      height: $toggleLine;
+      background: $toggleColor;
+      transition: transform .3s ease, box-shadow .3s ease;
+    }
+    
+    &:before {
+      box-shadow: 0 #{$offset / 1.5} 0 0 $toggleColor;
+    }
+    
+    &:after {
+      box-shadow: 0 #{-$offset / 1.5} 0 0 $toggleColor;
+    }
   }
   
-  ul {
-    display: none;
-    margin: 0px;
-  }
-  
-  ul.show {
-    display: flex;
+  .nav-items {
     position: absolute;
-    margin-left: 50px;
-    flex-direction: column; 
+    top: 0;
+    left: 0;
+    min-width: 300px;
+    max-width: 15vw;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1;
+    padding: 80px 20px 20px 10px;
+    transition: transform .3s ease;
+    background: #03030383;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 5px 0;
+    align-content: start;
+    box-shadow: 0 0 50px rgba(219, 216, 216, 0.116);
+    display: none;
+    
+    .nav-item {
+      background: darken(#615f5f, 5%);
+      padding: 10px;
+      transition: background-color .3s ease;
+      text-decoration: none;
+      font-family: 'Poppins', sans-serif;
+      font-size: 15px;
+      color: $secondary-color;
+      
+      &:hover {
+        cursor: pointer;
+        background: darken(#EFEFEF, 10%);
+        color: $tertiary-color;
+      }
+    }
   }
-  
-  nav {
-    display: flex;
-  }
-  
-  nav ul li {
-    text-decoration: none;
-    list-style: none;
-    margin: 5px;
-    color: white;
-    background-color: $secondary-color;
-    font-family: 'Poppins', sans-serif;
-  }
-  
-  /*end of hamburger*/
+}
+
+.nav-items.show {
+  display: flex;
+  flex-direction: column;
+}
+
+
+/*end of hamburger*/
   
   .logo {
     display: flex;
@@ -249,7 +315,7 @@
     margin: 20px;
   }
   
-  @media only screen and (max-width: 1000px) {
+  @media only screen and (max-width: 768px) {
     .movieContainer {
       @include flex();
         flex-direction: column;
@@ -271,37 +337,64 @@
       height: 450px;
     }
   
-    h3 {
-      display: flex;
-      margin: 0;
-      color: $secondary-color;
-      font-size: 25px;
-      margin: 20px;
-      
-    }
-
     #flix {
       height: auto;
       width: auto;
     }
-
-    
-  }
   
-  .trailer-button {
-    display: flex;
-    background-color: $primary-color;
-    border: 0;
-    color: $secondary-color;
-    font-size: 20px;
-    padding: 10px;
-    margin: 20px;
-    border-radius: 10%;
-  }
+    $toggleSize: 30px;
+  $toggleMargin: 20px;
+  $toggleLine: 4px;
+  $toggleColor: #e9dede;
   
-  #trailer-button:hover {
+  .nav-container {
+    position: relative;
+    display: inline-block;
+    max-width: $toggleSize + $toggleMargin;
+    max-height: $toggleSize + $toggleMargin;
+    overflow: visible;
     outline: none;
-    cursor: pointer;
+    
+    .nav-items.show {
+      display: block;
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100%;
+      text-align: center;
+    }
+  
+    .nav-item {
+      display: block;
+      padding: 10px;
+      background: $primary-color;
+      color: $secondary-color;
+      margin-bottom: 5px;
+    }
+  
+    .nav-items {
+      position: absolute;
+      top: 0;
+      left: 0;
+      min-width: 300px;
+      max-width: 15vw;
+      width: 100vw;
+      height: 100vh;
+      z-index: 1;
+      padding: 80px 20px 20px 10px;
+      transition: transform .3s ease;
+      transform: translate(calc(-100% - 50px), 0);
+      background: #03030383;
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-gap: 5px 0;
+      align-content: start;
+      box-shadow: 0 0 50px rgba(219, 216, 216, 0.116);
+      display: none;
+    }
+  
+  }
   }
   
   footer {
