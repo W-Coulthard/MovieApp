@@ -30,6 +30,11 @@ const main = document.getElementById('main');
 const form = document.getElementById('form');
 const search = document.getElementById('search');
 
+let currentPage = 1;
+let totalPages = null;
+let isLoading = false;
+
+
 // Get initial movies
 
 getMovies(API_URL);
@@ -108,7 +113,89 @@ form.addEventListener('submit', (e) => {
   }
 })
 
+/*scroll to load more*/
 
+function loadMoreData() {
+  if (isLoading || currentPage >= totalPages) {
+    return;
+  }
+
+  isLoading = true;
+
+  // Make a request to the API to load the next page of data
+  const url = `https://api.themoviedb.org/3/discover/movie?api_key=25afca5b22e187755c2665b7a304437e&language=en-US&sort_by=vote_count.desc&include_adult=false&include_video=false&page=1&with_watch_monetization_types=flatrate&page=${currentPage + 1}`;
+  fetch(url)
+    .then(response => response.json())
+    .then(data => {
+      // Update the UI with the new data
+      const results = data.results;
+      results.forEach(result => {
+        // Create an HTML element to display the result
+        const element = document.createElement('div');
+        element.textContent = result.title;
+        document.getElementById('results').appendChild(element);
+      });
+
+      // Update the variables
+      currentPage += 1;
+      totalPages = data.total_pages;
+      isLoading = false;
+    })
+    .catch(error => {
+      console.error(error);
+      isLoading = false;
+    });
+}
+
+window.addEventListener('scroll', () => {
+  const scrollPosition = window.innerHeight + window.scrollY;
+  const bodyHeight = document.body.offsetHeight;
+  if (scrollPosition >= bodyHeight && !isLoading) {
+    loadMoreData();
+  } else {
+    console.log('Loading more data...');
+  }
+});
+
+      // Set a flag to track if content is currently being fetched
+      let fetching = false;
+    
+      // Detect when the user has scrolled to the bottom of the page
+      window.addEventListener('scroll', () => {
+        const { scrollTop, clientHeight, scrollHeight } = document.documentElement;
+        if (scrollTop + clientHeight >= scrollHeight && !fetching) {
+          // Fetch more content
+          fetching = true;
+          const resultsContainer = document.getElementById('results');
+          const loadingSpinner = document.createElement('div');
+          loadingSpinner.classList.add('loading-spinner');
+          resultsContainer.appendChild(loadingSpinner);
+          fetch('/more-results') // Replace this with the URL of your API endpoint that returns more content
+            .then(response => response.json())
+            .then(data => {
+              // Append the new content to the existing content
+              data.forEach(result => {
+                const resultElement = document.createElement('div');
+                // Populate the resultElement with the new data
+                resultsContainer.appendChild(resultElement);
+              });
+            })
+            .catch(error => console.error(error))
+            .finally(() => {
+              // Remove the loading spinner and reset the fetching flag
+              resultsContainer.removeChild(loadingSpinner);
+              fetching = false;
+            });
+        } else if (scrollTop + clientHeight < scrollHeight && fetching) {
+          // Stop fetching content if the user has scrolled back up
+          fetching = false;
+        } else if (scrollTop + clientHeight >= scrollHeight && fetching) {
+          // Do nothing if the user has scrolled to the bottom of the page and content is already being fetched
+        } else {
+          // Do nothing if the user has not scrolled to the bottom of the page
+          console.log('Not at the bottom of the page');
+        }
+      });
 
 /*scroll to top*/
 /*
