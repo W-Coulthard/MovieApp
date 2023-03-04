@@ -30,6 +30,17 @@ const main = document.getElementById('main');
 const form = document.getElementById('form');
 const search = document.getElementById('search');
 
+let currentPage = 1;
+let totalPages = null;
+let isLoading = false;
+
+const navToggle = document.getElementById('nav-toggle');
+const navItems = document.querySelector('.nav-items');
+
+navToggle.addEventListener('click', () => {
+  navItems.classList.toggle('show');
+});
+
 // Get initial movies
 
 getMovies(API_URL);
@@ -49,35 +60,79 @@ async function getMovieDetails(id) {
     return detailsData;
 }
 
-function showMovies(movies) {
-    main.innerHTML = '';
+async function showMovies(movies) {
+  for (const movie of movies) {
+    const { id, poster_path, title, vote_average, overview, release_date, media_type } = movie;
+    const details = await getMovieDetails(id);
+    const cast = details.credits.cast.map(actor => actor.name).slice(0, 5).join(', ');
+    const genres = details.genres.map(genre => genre.name).join(', ');
 
-    movies.forEach(async (movie) => {
-        const { id, poster_path, title, vote_average, overview, release_date } = movie;
-        const details = await getMovieDetails(id);
-        const cast = details.credits.cast.map(actor => actor.name).slice(0, 5).join(', ');
-        const genres = details.genres.map(genre => genre.name).join(', ');
+    const movieEl = document.createElement('div');
+    movieEl.classList.add('movie');
+    movieEl.innerHTML = `
+      <img src="${IMG_PATH + poster_path}" alt="${title}" data-type="${media_type}">
+      <div class="movie-info">
+        <h3>${title}</h3>
+        <div class="overview">${overview}</div>
+        <div class="rating">${vote_average}</div>
+        <div class="cast">${cast}</div>
+        <div class="release_date">${release_date}</div>
+        <div class="genres">${genres}</div>
+      </div>`;
 
-        const movieEl = document.createElement('div');
-        movieEl.classList.add('movie');
-        movieEl.innerHTML = `
-          <img src="${IMG_PATH + poster_path}" alt="${title}">
-          <div class="movie-info">
-            <h3>${title}</h3>
-            <div class="overview">${overview}</div>
-            <div class="rating">${vote_average}</div>
-            <div class="cast">${cast}</div>
-            <div class="release_date">${release_date}</div>
-            <div class="genres">${genres}</div>
-          </div>`;
-
-        movieEl.setAttribute('data-id', id);
-        movieEl.setAttribute('data-title', title);
-        main.appendChild(movieEl);
-    });
+    movieEl.setAttribute('data-id', id);
+    movieEl.setAttribute('data-title', title);
+    main.appendChild(movieEl);
+  }
 }
 
+
 const movieContainer = document.querySelector('.movie-container');
+
+/*scroll to load more*/
+
+
+let fetching = false;
+
+window.addEventListener('scroll', () => {
+  const { scrollTop, clientHeight, scrollHeight } = document.documentElement;
+  if (scrollTop + clientHeight >= scrollHeight && !fetching) {
+    fetching = true;
+    const url = `https://api.themoviedb.org/3/trending/movie/week?api_key=25afca5b22e187755c2665b7a304437e&language=en-US&sort_by=vote_count.desc&include_adult=false&include_video=false&page=${currentPage + 1}&with_watch_monetization_types=flatrate`;
+    fetch(url)
+      .then(res => res.json())
+      .then(data => {
+        showMovies(data.results);
+        currentPage++;
+        fetching = false;
+      })
+      .catch(err => console.log(err));
+  }
+});
+
+
+function displayMovies(movies) {
+  const movieContainer = document.querySelector('.movie-container');
+  let movieHTML = '';
+
+  movies.forEach(movie => {
+    const { title, poster_path, vote_average } = movie;
+    const imageUrl = `https://image.tmdb.org/t/p/w500/${poster_path}`;
+
+    const movieElement = `
+      <div class="movie">
+        <img src="${imageUrl}" alt="${title}">
+        <div class="movie-info">
+          <h3>${title}</h3>
+          <span class="${getClassByRate(vote_average)}">${vote_average}</span>
+        </div>
+      </div>
+    `;
+    movieHTML += movieElement;
+  });
+
+  movieContainer.innerHTML += movieHTML;
+}
 
 /*Image Links*/
 
