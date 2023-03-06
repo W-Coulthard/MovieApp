@@ -422,3 +422,28 @@ $toggleColor: #e9dede;
     color: $secondary-color;
   }
   
+  #myBtn {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 99;
+    border: none;
+    outline: none;
+    color: white;
+    border-radius: 10px;
+    font-size: 30px;
+    backface-visibility: hidden;
+    cursor: pointer;
+    display: inline-block;
+    white-space: nowrap;
+    border-color: #7c7c7c;
+    background: linear-gradient(180deg,#e6e6e6 0%,rgba(0, 0, 0, 0.25) 49%, rgba(38, 38, 38, 0.6) 51%,rgba(0, 0, 0, 0.25) 100%);
+    border-radius: 2px;
+  }
+  
+  #myBtn:hover {
+    font-size: 29px;
+    background-color: #555; 
+  }
+  
