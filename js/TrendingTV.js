@@ -24,6 +24,9 @@ if (nav) {
 const API_URL = 'https://api.themoviedb.org/3/trending/tv/week?api_key=25afca5b22e187755c2665b7a304437e';
 const IMG_PATH = 'https://image.tmdb.org/t/p/w1280';
 
+const urlParams = new URLSearchParams(window.location.search);
+const movieId = urlParams.get('id');
+const movieTitle = urlParams.get('title');
 const main = document.getElementById('main');
 const form = document.getElementById('form');
 const search = document.getElementById('search');
@@ -148,66 +151,37 @@ imgButton.addEventListener('click', (event) => {
 /*search bar*/
 
 form.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const searchTerm = search.value;
-    if (searchTerm && searchTerm !== '') {
-        const SEARCH_API = `https://api.themoviedb.org/3/search/multi?api_key=25afca5b22e187755c2665b7a304437e&language=en-US&page=1&include_adult=false&query=${searchTerm}`
-        getMovies(SEARCH_API);
-        search.value = '';
-    } else {
-        window.location.reload();
-    }
+  e.preventDefault();
+  const searchTerm = search.value;
+  if (searchTerm && searchTerm !== '') {
+    const SEARCH_API = `https://api.themoviedb.org/3/search/multi?api_key=25afca5b22e187755c2665b7a304437e&language=en-US&page=1&include_adult=false&query=${searchTerm}`
+    main.innerHTML = ''; // clear existing movies from the main container
+    currentPage = 1; // reset current page to 1
+    getMovies(SEARCH_API);
+    search.value = '';
+  } else {
+    window.location.reload();
+  }
 })
 
+//* Scroll to top button*//
 
-/*scroll to top*/
-/*
+// When the user scrolls down 20px from the top of the document, show the button
+document.getElementById("myBtn").style.display = "none";
+
+
 window.onscroll = function() {scrollFunction()};
+
 function scrollFunction() {
-  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-    mybutton.style.display = "block";
+  if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
+    myBtn.style.display = "block";
   } else {
-    mybutton.style.display = "none";
+    myBtn.style.display = "none";
   }
 }
 
+// When the user clicks on the button, scroll to the top of the document
 function topFunction() {
-  document.body.scrollTop = 0;
-  document.documentElement.scrollTop = 0;
+  document.body.scrollTop = 0; // For Safari
+  document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
 }
-*/
-
-/*trending tv api*/
-/*
-fetch("https://api.themoviedb.org/3/trending/tv/week?api_key=25afca5b22e187755c2665b7a304437e")
-  .then(response => response.json())
-  .then(data => {
-    const list = data.results;
-      
-    list.map(item => {
-      const title = item.name;
-      const poster = item.poster_path;
-      const tv = `<li><img src="https://image.tmdb.org/t/p/w500${poster}" alt="${title}"></li>`;
-      document.querySelector(".tv").innerHTML += tv;
-    });
-  })
-  .catch(error => console.error(error));
-
-
-
-/*trending movies api*/
-/*
-fetch("https://api.themoviedb.org/3/trending/movie/week?api_key=25afca5b22e187755c2665b7a304437e")
-  .then(response => response.json())
-  .then(data => {
-    const list = data.results;
-
-    list.map(item => {
-      const title = item.title;
-      const poster = item.poster_path;
-      const movie = `<li><img src="https://image.tmdb.org/t/p/w500${poster}" alt="${title}"></li>`;
-      document.querySelector(".movies").innerHTML += movie;
-    });
-  })
-  .catch(error => console.error(error));
-*/
