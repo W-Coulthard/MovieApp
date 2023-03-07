@@ -76,9 +76,10 @@ async function showMovies(movies) {
     const movieEl = document.createElement('div');
     movieEl.classList.add('movie');
     movieEl.innerHTML = `
-      <img src="${IMG_PATH + poster_path}" alt="${title}" data-type="${media_type}"><span class="heart-icon"><i class="far fa-heart"></i></span></img>
+      <img src="${IMG_PATH + poster_path}" alt="${title}" data-type="${media_type}">
       <div class="movie-info">
         <h3>${title}</h3>
+        <span class="heart-icon"><i class="far fa-heart"></i></span>
         <div class="overview">${overview}</div>
         <div class="rating">${vote_average}</div>
         <div class="cast">${cast}</div>
@@ -224,4 +225,3 @@ if (savedFavorites) {
     }
   });
 }
-
