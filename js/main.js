@@ -163,7 +163,7 @@ imgButton.addEventListener('click', (event) => {
     e.preventDefault();
     const searchTerm = search.value;
     if (searchTerm && searchTerm !== '') {
-      const SEARCH_API = `https://api.themoviedb.org/3/search/multi?api_key=25afca5b22e187755c2665b7a304437e&language=en-US&page=1&include_adult=false&query=${searchTerm}`
+      const SEARCH_API = `https://api.themoviedb.org/3/search/movie?api_key=25afca5b22e187755c2665b7a304437e&language=en-US&page=1&include_adult=false&query=${searchTerm}`
       main.innerHTML = ''; // clear existing movies from the main container
       currentPage = 1; // reset current page to 1
       getMovies(SEARCH_API);
