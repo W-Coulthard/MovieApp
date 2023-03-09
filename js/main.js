@@ -76,7 +76,7 @@ async function showMovies(movies) {
     const movieEl = document.createElement('div');
     movieEl.classList.add('movie');
     movieEl.innerHTML = `
-      <img src="${IMG_PATH + poster_path}" alt="${title}" data-type="${media_type}"><span class="heart-icon"><i class="far fa-heart"></i></span></img>
+      <img src="${IMG_PATH + poster_path}" alt="${title}" data-type="${media_type}">
       <div class="movie-info">
         <h3>${title}</h3>
         <div class="overview">${overview}</div>
@@ -197,31 +197,5 @@ function topFunction() {
   document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
 }
 
-/*favorites*/
-const heartIcons = document.querySelectorAll('.heart-icon');
-const favorites = [];
 
-heartIcons.forEach((heartIcon, index) => {
-  heartIcon.addEventListener('click', () => {
-    heartIcon.classList.toggle('red');
-    if (favorites.includes(movies[index])) {
-      favorites.splice(favorites.indexOf(movies[index]), 1);
-    } else {
-      favorites.push(movies[index]);
-    }
-    localStorage.setItem('favorites', JSON.stringify(favorites));
-  });
-});
-
-const savedFavorites = JSON.parse(localStorage.getItem('favorites'));
-if (savedFavorites) {
-  favorites.push(...savedFavorites);
-  // update heart icons for saved favorites
-  savedFavorites.forEach(movie => {
-    const index = movies.findIndex(m => m.id === movie.id);
-    if (index !== -1) {
-      heartIcons[index].classList.add('red');
-    }
-  });
-}
 
