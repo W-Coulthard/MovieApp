@@ -23,10 +23,14 @@ html {
 }
 
 header {
-  @include flex();
-  padding: 20px;
-  justify-content: space-between;
+
   margin: 0 50px 0 50px;  
+}
+
+nav {
+  top: 0;
+  left: 0;
+  z-index: 100;
 
 }
 
@@ -67,7 +71,7 @@ $toggleColor: #e9dede;
   
   .nav-toggle {
     $offset: $toggleSize * 0.5;
-    
+    margin-right: auto;
     position: relative;
     width: $toggleSize;
     height: $toggleSize;
@@ -143,12 +147,6 @@ $toggleColor: #e9dede;
 
 /*end of hamburger*/
 
-.logo {
-  display: flex;
-  flex-direction: column;
-  
-  margin: 15px;
-}
 
 h1 {
   margin: 0;
@@ -162,19 +160,33 @@ h3 {
   color: $secondary-color;
   font-size: 20px;
 }
+#form {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 100px 100px;
+}
 
 .search {
+  display: flex;
   background-color: transparent;
   border-radius: 10%;
   border: 2px solid $secondary-color;
   padding:0.5rem 10px;
   font-size: 1rem;
-  align-items: flex-end;
 }
 
 #search:focus {
     outline: none;
     background-color: $secondary-color
+}
+
+.logo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 20px;
 }
 
 .home {
@@ -249,6 +261,7 @@ main {
     flex-direction: column;
     padding: 20px;
     justify-content: space-between;
+    align-items: center;
   }
 
   body {
