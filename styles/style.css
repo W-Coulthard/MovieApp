@@ -16,6 +16,7 @@ header {
 }
 
 nav {
+  display: inline-block;
   top: 0;
   left: 0;
   z-index: 100;
@@ -127,7 +128,7 @@ h3 {
   position: absolute;
   top: 0;
   right: 0;
-  margin: 100px 100px;
+  margin: 50px 100px;
 }
 
 .search {
@@ -144,6 +145,14 @@ h3 {
   background-color: #e9dede;
 }
 
+#flix {
+  display: inline-block;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
+}
+
+/*
 .logo {
   display: flex;
   flex-direction: column;
@@ -151,7 +160,7 @@ h3 {
   align-items: center;
   margin: 20px;
 }
-
+*/
 .home {
   text-decoration: none;
   color: #DB202C;
