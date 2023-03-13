@@ -23,11 +23,15 @@ html {
 }
 
 header {
-  @include flex();
-  padding: 20px;
-  justify-content: space-between;
-  margin: 0 50px 0 50px;  
 
+  margin: 0 50px 0 50px;  
+}
+
+nav {
+  display: inline-block;
+  top: 0;
+  left: 0;
+  z-index: 100;
 }
 
 /*Hamburger*/
@@ -67,7 +71,7 @@ $toggleColor: #e9dede;
   
   .nav-toggle {
     $offset: $toggleSize * 0.5;
-    
+    margin-right: auto;
     position: relative;
     width: $toggleSize;
     height: $toggleSize;
@@ -143,12 +147,6 @@ $toggleColor: #e9dede;
 
 /*end of hamburger*/
 
-.logo {
-  display: flex;
-  flex-direction: column;
-  
-  margin: 15px;
-}
 
 h1 {
   margin: 0;
@@ -162,14 +160,20 @@ h3 {
   color: $secondary-color;
   font-size: 20px;
 }
+#form {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 50px 100px;
+}
 
 .search {
+  display: flex;
   background-color: transparent;
   border-radius: 10%;
   border: 2px solid $secondary-color;
   padding:0.5rem 10px;
   font-size: 1rem;
-  align-items: flex-end;
 }
 
 #search:focus {
@@ -177,6 +181,21 @@ h3 {
     background-color: $secondary-color
 }
 
+#flix {
+  display: inline-block;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
+}
+/*
+.logo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 20px;
+}
+*/
 .home {
   text-decoration: none;
   color: $primary-color;
@@ -249,6 +268,7 @@ main {
     flex-direction: column;
     padding: 20px;
     justify-content: space-between;
+    align-items: center;
   }
 
   body {
@@ -326,3 +346,32 @@ footer {
   color: $secondary-color;
   
 }
+
+/* Back to top button */
+
+#myBtn {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 99;
+  border: none;
+  outline: none;
+  color: white;
+  border-radius: 10px;
+  font-size: 30px;
+  backface-visibility: hidden;
+  cursor: pointer;
+  display: inline-block;
+  white-space: nowrap;
+  border-color: #7c7c7c;
+  background: linear-gradient(180deg,#e6e6e6 0%,rgba(0, 0, 0, 0.25) 49%, rgba(38, 38, 38, 0.6) 51%,rgba(0, 0, 0, 0.25) 100%);
+  border-radius: 2px;
+}
+
+#myBtn:hover {
+  font-size: 29px;
+  background-color: #555; 
+}
+
+

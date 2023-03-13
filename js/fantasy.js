@@ -1,4 +1,4 @@
-//Hamburger Menu
+/*hamburger*/
 
 const nav = document.querySelector(".nav-container");
 
@@ -21,12 +21,14 @@ if (nav) {
   }
 }
 
-const API_URL = 'https://api.themoviedb.org/3/trending/tv/week?api_key=25afca5b22e187755c2665b7a304437e';
-const IMG_PATH = 'https://image.tmdb.org/t/p/w1280';
+//Dependencies
 
 const urlParams = new URLSearchParams(window.location.search);
 const movieId = urlParams.get('id');
 const movieTitle = urlParams.get('title');
+const API_URL = 'https://api.themoviedb.org/3/discover/movie?api_key=25afca5b22e187755c2665b7a304437e&language=en-US&include_adult=false&include_video=false&page=1&with_watch_monetization_types=flatrate&page=1&with_genres=14';
+const IMG_PATH = 'https://image.tmdb.org/t/p/w1280';
+
 const main = document.getElementById('main');
 const form = document.getElementById('form');
 const search = document.getElementById('search');
@@ -54,7 +56,7 @@ async function getMovies(url) {
 }
 
 async function getMovieDetails(id) {
-    const detailsURL = `https://api.themoviedb.org/3/tv/${id}?api_key=25afca5b22e187755c2665b7a304437e&append_to_response=credits`;
+    const detailsURL = `https://api.themoviedb.org/3/movie/${id}?api_key=25afca5b22e187755c2665b7a304437e&append_to_response=credits`;
     const detailsRes = await fetch(detailsURL);
     const detailsData = await detailsRes.json();
 
@@ -87,6 +89,7 @@ async function showMovies(movies) {
   }
 }
 
+
 const movieContainer = document.querySelector('.movie-container');
 
 /*scroll to load more*/
@@ -98,7 +101,7 @@ window.addEventListener('scroll', () => {
   const { scrollTop, clientHeight, scrollHeight } = document.documentElement;
   if (scrollTop + clientHeight >= scrollHeight && !fetching) {
     fetching = true;
-    const url = `https://api.themoviedb.org/3/trending/tv/week?api_key=25afca5b22e187755c2665b7a304437e&language=en-US&sort_by=vote_count.desc&include_adult=false&include_video=false&page=${currentPage + 1}&with_watch_monetization_types=flatrate`;
+    const url = `https://api.themoviedb.org/3/discover/movie?api_key=25afca5b22e187755c2665b7a304437e&language=en-US&include_adult=false&include_video=false&page=${currentPage + 1}&with_genres=14`;
     fetch(url)
       .then(res => res.json())
       .then(data => {
@@ -134,6 +137,7 @@ function displayMovies(movies) {
   movieContainer.innerHTML += movieHTML;
 }
 
+
 /*Image Links*/
 
 const imgButton = document.querySelector('.main');
@@ -141,28 +145,29 @@ const imgButton = document.querySelector('.main');
 imgButton.addEventListener('click', (event) => {
   const target = event.target;
   if (target.tagName === 'IMG') {
-    const tv_id = target.parentElement.getAttribute('data-id');
+    const movieId = target.parentElement.getAttribute('data-id');
     const movieTitle = target.parentElement.getAttribute('data-title');
-    const url = `tvDetails.html?id=${tv_id}&title=${movieTitle}`;
+    const url = `details.html?id=${movieId}&title=${movieTitle}`;
     window.location.href = url;
   }
 });
 
 /*search bar*/
 
-form.addEventListener('submit', (e) => {
-  e.preventDefault();
-  const searchTerm = search.value;
-  if (searchTerm && searchTerm !== '') {
-    const SEARCH_API = `https://api.themoviedb.org/3/search/multi?api_key=25afca5b22e187755c2665b7a304437e&language=en-US&page=1&include_adult=false&query=${searchTerm}`
-    main.innerHTML = ''; // clear existing movies from the main container
-    currentPage = 1; // reset current page to 1
-    getMovies(SEARCH_API);
-    search.value = '';
-  } else {
-    window.location.reload();
-  }
-})
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const searchTerm = search.value;
+    if (searchTerm && searchTerm !== '') {
+      const SEARCH_API = `https://api.themoviedb.org/3/search/movie?api_key=25afca5b22e187755c2665b7a304437e&language=en-US&page=1&include_adult=false&query=${searchTerm}`
+      main.innerHTML = ''; // clear existing movies from the main container
+      currentPage = 1; // reset current page to 1
+      getMovies(SEARCH_API);
+      search.value = '';
+    } else {
+      window.location.reload();
+    }
+  })
+  
 
 //* Scroll to top button*//
 
@@ -185,3 +190,4 @@ function topFunction() {
   document.body.scrollTop = 0; // For Safari
   document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
 }
+

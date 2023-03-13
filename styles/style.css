@@ -12,13 +12,14 @@ html {
 }
 
 header {
-  display: flex;
-  flex-direction: center;
-  justify-content: center;
-  align-items: center;
-  padding: 20px;
-  justify-content: space-between;
   margin: 0 50px 0 50px;
+}
+
+nav {
+  display: inline-block;
+  top: 0;
+  left: 0;
+  z-index: 100;
 }
 
 /*Hamburger*/
@@ -43,6 +44,7 @@ header {
   transform: translate(0, 0);
 }
 .nav-container .nav-toggle {
+  margin-right: auto;
   position: relative;
   width: 30px;
   height: 30px;
@@ -109,12 +111,6 @@ header {
 }
 
 /*end of hamburger*/
-.logo {
-  display: flex;
-  flex-direction: column;
-  margin: 15px;
-}
-
 h1 {
   margin: 0;
   color: #DB202C;
@@ -128,13 +124,20 @@ h3 {
   font-size: 20px;
 }
 
+#form {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 50px 100px;
+}
+
 .search {
+  display: flex;
   background-color: transparent;
   border-radius: 10%;
   border: 2px solid #e9dede;
   padding: 0.5rem 10px;
   font-size: 1rem;
-  align-items: flex-end;
 }
 
 #search:focus {
@@ -142,6 +145,22 @@ h3 {
   background-color: #e9dede;
 }
 
+#flix {
+  display: inline-block;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
+}
+
+/*
+.logo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 20px;
+}
+*/
 .home {
   text-decoration: none;
   color: #DB202C;
@@ -216,6 +235,7 @@ main {
     flex-direction: column;
     padding: 20px;
     justify-content: space-between;
+    align-items: center;
   }
   body {
     margin: 0 20px 20px 20px;
@@ -281,4 +301,31 @@ footer {
   flex-direction: column;
   margin: 15px;
   color: #e9dede;
+}
+
+/* Back to top button */
+#myBtn {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 99;
+  border: none;
+  outline: none;
+  color: white;
+  border-radius: 10px;
+  font-size: 30px;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  cursor: pointer;
+  display: inline-block;
+  white-space: nowrap;
+  border-color: #7c7c7c;
+  background: linear-gradient(180deg, #e6e6e6 0%, rgba(0, 0, 0, 0.25) 49%, rgba(38, 38, 38, 0.6) 51%, rgba(0, 0, 0, 0.25) 100%);
+  border-radius: 2px;
+}
+
+#myBtn:hover {
+  font-size: 29px;
+  background-color: #555;
 }/*# sourceMappingURL=style.css.map */

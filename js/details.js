@@ -201,7 +201,7 @@ form.addEventListener('submit', (e) => {
   e.preventDefault();
   const searchTerm = search.value;
   if (searchTerm && searchTerm !== '') {
-      const SEARCH_API = `https://api.themoviedb.org/3/search/multi?api_key=25afca5b22e187755c2665b7a304437e&language=en-US&page=1&include_adult=false&query=${searchTerm}`
+      const SEARCH_API = `https://api.themoviedb.org/3/search/movie?api_key=25afca5b22e187755c2665b7a304437e&language=en-US&page=1&include_adult=false&query=${searchTerm}`
       getMovies(SEARCH_API);
       search.value = '';
   } else {
@@ -210,3 +210,24 @@ form.addEventListener('submit', (e) => {
 })
 console.log(DETAILS_API)
 
+//* Scroll to top button*//
+
+// When the user scrolls down 20px from the top of the document, show the button
+document.getElementById("myBtn").style.display = "none";
+
+
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
+    myBtn.style.display = "block";
+  } else {
+    myBtn.style.display = "none";
+  }
+}
+
+// When the user clicks on the button, scroll to the top of the document
+function topFunction() {
+  document.body.scrollTop = 0; // For Safari
+  document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+}
