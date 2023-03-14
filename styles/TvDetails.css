@@ -8,30 +8,35 @@ html {
   background: #000000;
   color: #e9dede;
   scroll-behavior: smooth;
-}
-
-.wrapper {
-  min-height: 100vh;
   box-shadow: inset 0 0 25px rgba(148, 3, 3, 0.479);
-}
-
-body {
-  margin: 0;
 }
 
 header {
   display: flex;
-  flex-direction: center;
-  justify-content: center;
-  align-items: center;
-  padding: 20px;
-  display: flex;
   justify-content: space-between;
+  align-items: center;
+  margin: 15px 50px;
 }
 
-a {
-  text-decoration: none;
-  color: #DB202C;
+nav {
+  display: inline-flex;
+  justify-content: flex-start;
+  top: 0;
+  left: 0;
+  z-index: 100;
+}
+
+.logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+}
+
+form {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
 }
 
 /*Hamburger*/
@@ -42,6 +47,7 @@ a {
   max-height: 50px;
   overflow: visible;
   outline: none;
+  margin: 30px;
 }
 .nav-container.is-active .nav-toggle:before, .nav-container.is-active .nav-toggle:after {
   box-shadow: none;
@@ -56,10 +62,10 @@ a {
   transform: translate(0, 0);
 }
 .nav-container .nav-toggle {
+  margin-right: auto;
   position: relative;
   width: 30px;
   height: 30px;
-  margin: 20px;
   z-index: 2;
 }
 .nav-container .nav-toggle:hover {
@@ -122,15 +128,18 @@ a {
 }
 
 /*end of hamburger*/
-.logo {
+.search {
   display: flex;
-  flex-direction: column;
-  margin: 15px;
+  background-color: transparent;
+  border-radius: 10%;
+  border: 2px solid #e9dede;
+  padding: 0.5rem 10px;
+  font-size: 1rem;
 }
 
-#flix {
-  height: auto;
-  width: auto;
+#search:focus {
+  outline: none;
+  background-color: #e9dede;
 }
 
 h1 {
@@ -155,25 +164,9 @@ h4 {
   margin-right: 10px;
 }
 
-.search {
-  background-color: transparent;
-  border-radius: 10%;
-  border: 2px solid #e9dede;
-  padding: 0.5rem 10px;
-  font-size: 1rem;
-  align-items: flex-end;
-  margin-left: 10px;
-  margin-right: 25px;
-}
-
-#search:focus {
-  outline: none;
-  background-color: #e9dede;
-}
-
-.home {
-  text-decoration: none;
-  color: #DB202C;
+#flix {
+  height: auto;
+  width: auto;
 }
 
 main {
@@ -313,6 +306,10 @@ img {
     flex-direction: column;
     padding: 20px;
     justify-content: space-between;
+    align-items: center;
+  }
+  body {
+    margin: 0 20px 20px 20px;
   }
   img {
     width: 300px;

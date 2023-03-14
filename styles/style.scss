@@ -23,15 +23,32 @@ html {
 }
 
 header {
-
-  margin: 0 50px 0 50px;  
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 15px 50px;
 }
 
 nav {
-  display: inline-block;
+  display: inline-flex;
+  justify-content: flex-start;
   top: 0;
   left: 0;
   z-index: 100;
+  
+}
+
+.logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+}
+
+form {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
 }
 
 /*Hamburger*/
@@ -47,6 +64,7 @@ $toggleColor: #e9dede;
   max-height: $toggleSize + $toggleMargin;
   overflow: visible;
   outline: none;
+  margin: 30px;
   
   //&:focus-within, &:focus {
   &.is-active {
@@ -75,7 +93,6 @@ $toggleColor: #e9dede;
     position: relative;
     width: $toggleSize;
     height: $toggleSize;
-    margin: $toggleMargin;
     z-index: 2;
     
     &:hover {
@@ -147,26 +164,6 @@ $toggleColor: #e9dede;
 
 /*end of hamburger*/
 
-
-h1 {
-  margin: 0;
-  color: $primary-color;
-  font-size: 50px;
-}
-
-h3 {
-  display: none;
-  margin: 0;
-  color: $secondary-color;
-  font-size: 20px;
-}
-#form {
-  position: absolute;
-  top: 0;
-  right: 0;
-  margin: 50px 100px;
-}
-
 .search {
   display: flex;
   background-color: transparent;
@@ -181,25 +178,22 @@ h3 {
     background-color: $secondary-color
 }
 
-#flix {
-  display: inline-block;
-  justify-content: center;
-  align-items: center;
-  margin: 10px;
-}
-/*
-.logo {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin: 20px;
-}
-*/
-.home {
-  text-decoration: none;
+h1 {
+  margin: 0;
   color: $primary-color;
+  font-size: 50px;
+}
 
+h3 {
+  display: none;
+  margin: 0;
+  color: $secondary-color;
+  font-size: 20px;
+}
+
+#flix {
+  height: auto;
+  width: auto;
 }
 
 main {
@@ -284,6 +278,8 @@ main {
     height: auto;
     width: auto;
   }
+
+//hamburger menu
 
   $toggleSize: 30px;
 $toggleMargin: 20px;
