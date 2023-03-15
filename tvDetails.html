@@ -18,8 +18,7 @@
       <header>
         <nav>
             <div class="nav-container" tabindex="0">
-              <div class="nav-toggle" id="nav-toggle"></div>
-            
+              <div class="nav-toggle" id="nav-toggle"></div>            
               <nav class="nav-items">
                 <a class="nav-item" href="index.html">Discover</a>
                 <a class="nav-item" href="TrendingMovies.html">Trending Movies</a>
@@ -49,29 +48,15 @@
           </div>
         <form id="form">
             <input type="text" id="search" class="search"  placeholder="Search for a TV Show...">
-        </form>
-        
+        </form>        
     </header>
-    <div>
-              <main id="main" class="main">
-    <div class="movie-info">
-    
-    </div>
-
-    
+    <main id="main" class="main">
+    <div class="movie-info"></div>
     </main>
     </div>
     <footer>
       <button onclick="topFunction()" id="myBtn" title="Go to top">↑</button>
     </footer>   
-        <script>
-          const navToggle = document.getElementById('nav-toggle');
-          const navItems = document.querySelector('.nav-items');
-        
-          navToggle.addEventListener('click', () => {
-            navItems.classList.toggle('show');
-          });
-        </script>
-        <script src="/js/TvDetails.js" async defer></script>
+        <script src="js/TvDetails.js" async defer></script>
     </body>
 </html>
