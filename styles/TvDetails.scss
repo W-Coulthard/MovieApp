@@ -1,3 +1,14 @@
+@mixin flex() {
+  display: flex;
+  flex-direction: center;
+  justify-content: center;
+  align-items: center;
+}
+
+$primary-color: #DB202C;
+$secondary-color: #e9dede;
+$tertiary-color: #000000;
+  
   * {
     box-sizing: border-box;
   }
@@ -191,7 +202,6 @@ h4 {
   #flix {
     height: auto;
     width: auto;
-    margin: 0;
   }
   
   main {
@@ -225,14 +235,13 @@ h4 {
   img {
     width: 300px;
     height: 450px;
-    margin: 10px;
     }
   
   .overview {
     display: flex;
     color: $secondary-color;
     font-size: 20px;
-    margin: 0;
+    margin: 20px;
   }
     
   .rating {
@@ -340,13 +349,17 @@ h4 {
     img {
       width: 300px;
       height: 450px;
-      margin: 0;
     }
   
     #flix {
       height: auto;
       width: auto;
-      margin: 0;
+      margin: 0 0 20px 0;
+    }
+
+    h3 {
+      display: flex;
+      margin: 20px;
     }
   
     //hamburger menu

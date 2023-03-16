@@ -207,6 +207,7 @@ main {
 .release_date {
   color: #e9dede;
   font-size: 20px;
+  margin: 20px;
   display: none;
 }
 
@@ -214,6 +215,12 @@ main {
   color: #e9dede;
   font-size: 20px;
   display: none;
+}
+
+.tagline {
+  color: #e9dede;
+  font-size: 20px;
+  margin: 20px;
 }
 
 @media only screen and (max-width: 768px) {
@@ -241,6 +248,7 @@ main {
   #flix {
     height: auto;
     width: auto;
+    margin: 0 0 20px 0;
   }
   .nav-container {
     position: relative;

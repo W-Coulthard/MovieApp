@@ -22,11 +22,11 @@ if (nav) {
 }
 
 const navToggle = document.getElementById('nav-toggle');
-          const navItems = document.querySelector('.nav-items');
+const navItems = document.querySelector('.nav-items');
         
-          navToggle.addEventListener('click', () => {
-            navItems.classList.toggle('show');
-          });
+navToggle.addEventListener('click', () => {
+navItems.classList.toggle('show');
+});
 
 /*Retrieved Data*/
 
