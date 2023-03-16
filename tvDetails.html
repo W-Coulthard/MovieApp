@@ -7,23 +7,22 @@
         <meta name="description" content="MediaFox">
         <link rel="shortcut icon" type="image/x-icon" href="assets/images/foxcam.ico"/>
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="/styles/TvDetails.css">
+        <link rel="stylesheet" href="styles/TvDetails.css">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
         <script src="https://kit.fontawesome.com/7d26c7f0fb.js" crossorigin="anonymous"></script>
     </head>
     <body>
-    <div class="wrapper">
       <header>
         <nav>
             <div class="nav-container" tabindex="0">
-              <div class="nav-toggle" id="nav-toggle"></div>
-            
+              <div class="nav-toggle" id="nav-toggle"></div>            
               <nav class="nav-items">
                 <a class="nav-item" href="index.html">Discover</a>
                 <a class="nav-item" href="TrendingMovies.html">Trending Movies</a>
                 <a class="nav-item" href="TrendingTV.html">Trending TV</a>
+                <a class="nav-item" href="horror.html">Horror</a>
                 <a class="nav-item" href="comedy.html">Comedy</a>
                 <a class="nav-item" href="action.html">Action</a>
                 <a class="nav-item" href="romance.html">Romance</a>
@@ -45,33 +44,18 @@
             </div>
           </nav>
         <div class="logo">
-            <a href="index.html"><img id="flix" src="https://fontmeme.com/permalink/230227/b8c9e125e38a20f018fbe0f060297de7.png" alt="netflix-font" border="0"></a>
-          </div>
+            <a href="index.html"><img id="flix" src="https://fontmeme.com/permalink/230316/88fa1ed678695eaf14cc38e90aba8a90.png" alt="netflix-font" border="0"></a>
+        </div>
         <form id="form">
             <input type="text" id="search" class="search"  placeholder="Search for a TV Show...">
-        </form>
-        
+        </form>        
     </header>
-    <div>
-              <main id="main" class="main">
-    <div class="movie-info">
-    
-    </div>
-
-    
+    <main id="main" class="main">
+    <div class="movie-info"></div>
     </main>
-    </div>
     <footer>
       <button onclick="topFunction()" id="myBtn" title="Go to top">↑</button>
     </footer>   
-        <script>
-          const navToggle = document.getElementById('nav-toggle');
-          const navItems = document.querySelector('.nav-items');
-        
-          navToggle.addEventListener('click', () => {
-            navItems.classList.toggle('show');
-          });
-        </script>
-        <script src="/js/TvDetails.js" async defer></script>
+        <script src="js/TvDetails.js" async defer></script>
     </body>
 </html>

@@ -11,7 +11,6 @@ $tertiary-color: #000000;
 
 * {
   box-sizing: border-box;
-
 }
 
 html {
@@ -20,29 +19,36 @@ html {
   background: $tertiary-color;
   color: $secondary-color;
   scroll-behavior: smooth;
-}
-
-.wrapper {
-  min-height: 100vh;
   box-shadow: inset 0 0 25px rgba(148, 3, 3, 0.479);
-}
-
-
-body {
-  margin: 0;
-}
-
+ }
 
 header {
-  @include flex();
-  padding: 20px;
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  margin: 15px 50px;
 }
 
-a {
-  text-decoration: none;
-  color: $primary-color;
+nav {
+  display: inline-flex;
+  justify-content: flex-start;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  
+}
+
+.logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+}
+
+form {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
 }
 
 /*Hamburger*/
@@ -58,6 +64,7 @@ $toggleColor: #e9dede;
   max-height: $toggleSize + $toggleMargin;
   overflow: visible;
   outline: none;
+  margin: 30px;
   
   //&:focus-within, &:focus {
   &.is-active {
@@ -82,11 +89,10 @@ $toggleColor: #e9dede;
   
   .nav-toggle {
     $offset: $toggleSize * 0.5;
-    
+    margin-right: auto;
     position: relative;
     width: $toggleSize;
     height: $toggleSize;
-    margin: $toggleMargin;
     z-index: 2;
     
     &:hover {
@@ -156,18 +162,20 @@ $toggleColor: #e9dede;
   flex-direction: column;
 }
 
-
 /*end of hamburger*/
 
-.logo {
+.search {
   display: flex;
-  flex-direction: column;
-  margin: 15px;
+  background-color: transparent;
+  border-radius: 10%;
+  border: 2px solid $secondary-color;
+  padding:0.5rem 10px;
+  font-size: 1rem;
 }
 
-#flix {
-  height: auto;
-  width: auto;
+#search:focus {
+    outline: none;
+    background-color: $secondary-color
 }
 
 h1 {
@@ -192,25 +200,9 @@ h4 {
   margin-right: 10px;
 }
 
-.search {
-  background-color: transparent;
-  border-radius: 10%;
-  border: 2px solid $secondary-color;
-  padding:0.5rem 10px;
-  font-size: 1rem;
-  align-items: flex-end;
-  margin-left: 10px;
-  margin-right: 25px;
-}
-
-#search:focus {
-  outline: none;
-  background-color: $secondary-color
-}
-
-.home {
-  text-decoration: none;
-  color: $primary-color;
+#flix {
+  height: auto;
+  width: auto;
 }
 
 main {
@@ -231,11 +223,9 @@ main {
   width: 300px;
   height: 450px;
   margin: 10px;
-  
   }
 
 .backdropImg {
-
   justify-content: center;
   align-items: center;
   position: absolute;
@@ -291,7 +281,6 @@ img {
 }
 
 .release_date {
-  display: flex;
   color: $secondary-color;
   font-size: 20px;
   margin: 20px;
@@ -349,6 +338,11 @@ img {
     flex-direction: column;
     padding: 20px;
     justify-content: space-between;
+    align-items: center;
+  }
+  
+  body {
+    margin: 0 20px 20px 20px;
   }
 
   img {
@@ -359,6 +353,12 @@ img {
   #flix {
     height: auto;
     width: auto;
+    margin: 0 0 20px 0;
+  }
+
+  h3 {
+    display: flex;
+    margin: 20px;
   }
 
 //hamburger menu
@@ -416,20 +416,13 @@ $toggleColor: #e9dede;
   }
  }
 
-//hamburger end 
 }
 
 footer {
-  bottom: 0;
-  width: 100%;
-  left: 0;
-  right: 0;
-  text-align: center;
-
-  p {
-    margin: 0;
-    padding: 0;
-  }
+  @include flex();
+  flex-direction: column;
+  margin: 15px;
+  color: $secondary-color;
 }
 
 #myBtn {
