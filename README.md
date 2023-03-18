@@ -1,4 +1,4 @@
-![Screenshot of Website](/assets/images/screenshot.png)
+![Screenshot of Website](/assets/images/screenshot1.png)
 # MediaFox
 
 MediaFox is a web application for browsing movies and TV shows. With MediaFox, users can search for movies and TV shows, view information about them, and play trailers.
