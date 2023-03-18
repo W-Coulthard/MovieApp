@@ -171,7 +171,7 @@ imgButton.addEventListener('click', (event) => {
 
 //* Scroll to top button*//
 
-// When the user scrolls down 20px from the top of the document, show the button
+<a href="index.html"><img id="flix" src="https://fontmeme.com/permalink/230316/88fa1ed678695eaf14cc38e90aba8a90.png" alt="netflix-font" border="0"></a>
 document.getElementById("myBtn").style.display = "none";
 
 
@@ -185,7 +185,6 @@ function scrollFunction() {
   }
 }
 
-// When the user clicks on the button, scroll to the top of the document
 function topFunction() {
   document.body.scrollTop = 0; // For Safari
   document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
